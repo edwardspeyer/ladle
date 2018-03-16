@@ -1,0 +1,6 @@
+*.pdf
+.*.swp
+.DS_Store
+data/type/Gill Sans*
+doc
+tags

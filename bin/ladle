@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+$: << '%s/../lib' % File.dirname(File.realpath(__FILE__))
+require 'ladle'
+Ladle::Main.new.exec(ARGV)

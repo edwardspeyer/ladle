@@ -1,0 +1,32 @@
+== Hazel Folder ==
+
+hazel.folder@example.com
+/
+link:tel:+15552023003[+1 (555) 202 3003] 
+/
+3333 Three Ave #33, Threeville, TN
+
+
+=== *Overview* ===
+
+* Cardboard manufacturing specialist with over 20 years of experience with wood
+  pulping, corrugation, fold-automation and _This Way Up_  arrow orientation.
+
+* Most experiencd with *brown*, *white* and *grey* boxes.  Some experience with
+  other box colors and also with *process automation* for box making from tree
+  to box shipment.  Also well versed in *box management*.
+
+
+=== *Professional Experience* ===
+
+==== *Got Boxes?* — January 2015 to present ====
+
+* I upgraded our box making machine to improve throughput by 140%.  Together
+  with my team of 7 we shipped important improvements in box making critical to
+  the success of _Got Boxes?_.
+
+=== *Education* ===
+
+==== *University of Munich* — October 1984 to July 1988 ====
+
+* I hold the position of _Master of Sciences_ with the University. a -- b.
