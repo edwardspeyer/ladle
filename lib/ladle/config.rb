@@ -7,13 +7,13 @@ module Ladle
       @path = Pathname.new(path.to_s).realpath
     end
 
+    # If the config is in x.rb, the AsciiDoc source is assumed to be in x.adoc.
+    #
+    # Implement asciidoc_source if that assumption is wrong.
+    #
     def asciidoc_source
       basename = @path.basename.to_s.sub(/.rb$/, '.adoc')
       @path.dirname + basename
-    end
-
-    def qualified_asciidoc_source
-      @path.dirname + asciidoc_source.to_s
     end
 
     def footer_right
@@ -38,6 +38,10 @@ module Ladle
       not `git status --porcelain`.strip.empty?
     end
     
+    # :nodoc:
+    def qualified_asciidoc_source
+      @path.dirname + asciidoc_source.to_s
+    end
 
     # :nodoc:
     def self.load(file)

@@ -48,6 +48,7 @@ module Ladle
         'pdf-style'           => "#{data_directory}/theme.yml",
         'pdf-fontsdir'        => "#{data_directory}/type/",
         'recipient'           => recipient, # TODO doc
+        recipient             => true,
       }
       flags = flags_for(recipient)
       log 'flags: %p' % [flags,]
@@ -65,8 +66,6 @@ module Ladle
           raise Ladle::Error,
             "config method %p: %s" % [flag, ex.message]
         end
-      end.map do |m|
-        m.to_s.sub(/^flag_/, '')
       end.sort.map(&:to_s)
     end
 

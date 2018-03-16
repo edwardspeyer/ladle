@@ -22,11 +22,21 @@ link:tel:+15552023003[+1 (555) 202 3003]
 ==== *Got Boxes?* — January 2015 to present ====
 
 * I upgraded our box making machine to improve throughput by 140%.  Together
-  with my team of 7 we shipped important improvements in box making critical to
-  the success of _Got Boxes?_.
+  with my team of 7 we shipped multiple important improvements in box making
+  that were critical to the success of _Got Boxes?_ program of intranet
+  improvements.
 
 === *Education* ===
 
 ==== *University of Munich* — October 1984 to July 1988 ====
 
-* I hold the position of _Master of Sciences_ with the University. a -- b.
+* I hold the position of _Master of Sciences_ with the University.
+
+ifdef::flag_include_california_specific_sections[]
+* Including working with the renowned Californian box maker *Professor
+  Surfboard* from UC San Diego.
+endif::[]
+
+ifdef::WalMart[]
+* I LOVE WALMART
+endif::[]
