@@ -17,6 +17,7 @@ page:
   layout: portrait
   margin: [0.5in, $page_ladle_margin, 0.5in, $page_ladle_margin]
   size: A4
+
 base:
   align: justify
   font_color: 333333
@@ -31,15 +32,22 @@ base:
   border_color: eeeeee
   border_radius: 4
   border_width: 0.5
+
 vertical_rhythm: $base_line_height_length
+
 horizontal_rhythm: $base_line_height_length
+
 vertical_spacing: $vertical_rhythm
+
 link:
   font_color: 428bca
+
 literal:
   font_color: b12146
   font_family: M+ 1mn
+
 menu_caret_content: " <font size=\"1.15em\"><color rgb=\"b12146\">\u203a</color></font> "
+
 heading:
   align: left
   font_color: $base_font_color
@@ -54,6 +62,7 @@ heading:
   line_height: 1
   margin_top: $vertical_rhythm * 0.4
   margin_bottom: $vertical_rhythm * 0.9
+
 title_page:
   align: right
   logo:
@@ -73,18 +82,22 @@ title_page:
     font_color: 181818
   revision:
     margin_top: $base_font_size * 1.25
+
 block:
   margin_top: 0
   margin_bottom: $vertical_rhythm
+
 caption:
   align: left
   font_size: $base_font_size * 0.95
   font_style: italic
   margin_inside: $vertical_rhythm / 3
   margin_outside: 0
+
 lead:
   font_size: $base_font_size_large
   line_height: 1.4
+
 abstract:
   font_color: 5c6266
   font_size: $lead_font_size
@@ -97,6 +110,7 @@ abstract:
     font_family: $heading_font_family
     font_size: $heading_h4_font_size
     font_style: $heading_font_style
+
 admonition:
   column_rule_color: $base_border_color
   column_rule_width: $base_border_width
@@ -104,6 +118,7 @@ admonition:
   label:
     text_transform: uppercase
     font_style: bold
+
 blockquote:
   font_color: $base_font_color
   font_size: $base_font_size_large
@@ -112,6 +127,7 @@ blockquote:
   padding: [0, $horizontal_rhythm, $block_margin_bottom * -0.75, $horizontal_rhythm + $blockquote_border_width / 2]
   cite_font_size: $base_font_size_small
   cite_font_color: 999999
+
 code:
   font_color: $base_font_color
   font_family: $literal_font_family
@@ -123,22 +139,27 @@ code:
   border_color: cccccc
   border_radius: $base_border_radius
   border_width: 0.75
+
 conum:
   font_family: M+ 1mn
   font_color: $literal_font_color
   font_size: $base_font_size
   line_height: 4 / 3
+
 example:
   border_color: $base_border_color
   border_radius: $base_border_radius
   border_width: 0.75
   background_color: ffffff
   padding: [$vertical_rhythm, $horizontal_rhythm, 0, $horizontal_rhythm]
+
 image:
   align: left
+
 prose:
   margin_top: $block_margin_top
   margin_bottom: $block_margin_bottom
+
 sidebar:
   background_color: eeeeee
   border_color: e1e1e1
@@ -151,19 +172,23 @@ sidebar:
     font_family: $heading_font_family
     font_size: $heading_h4_font_size
     font_style: $heading_font_style
+
 thematic_break:
   border_color: $base_border_color
   border_style: solid
   border_width: $base_border_width
   margin_top: $vertical_rhythm * 0.5
   margin_bottom: $vertical_rhythm * 1.5
+
 description_list:
   term_font_style: bold
   term_spacing: $vertical_rhythm / 4
   description_indent: $horizontal_rhythm * 1.25
+
 outline_list:
   indent: $horizontal_rhythm * 1.5
   item_spacing: $vertical_rhythm / 2
+
 table:
   background_color: $page_background_color
   head_font_style: bold
@@ -172,11 +197,13 @@ table:
   border_color: dddddd
   border_width: $base_border_width
   cell_padding: 3
+
 toc:
   indent: $horizontal_rhythm
   line_height: 1.4
   dot_leader:
     font_color: a9a9a9
+
 footer:
   font_size: $base_font_size_small
   border_color: dddddd
