@@ -3,9 +3,10 @@ class Config < Ladle::Config
   WalMart   = 'WalMart'
 
   # Path is relative to the Ruby config
-  def asciidoc_source
-    'hazel.adoc'
-  end
+  # Default to the same name but with .adoc?
+  #def asciidoc_source
+  #  'example.adoc'
+  #end
 
   def display_name
     'Hazel Folder'

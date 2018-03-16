@@ -4,11 +4,16 @@ module Ladle
     require 'set'
 
     def initialize(path)
-      @path = path
+      @path = Pathname.new(path.to_s).realpath
+    end
+
+    def asciidoc_source
+      basename = @path.basename.to_s.sub(/.rb$/, '.adoc')
+      @path.dirname + basename
     end
 
     def qualified_asciidoc_source
-      Pathname.new(@path).dirname + asciidoc_source.to_s
+      @path.dirname + asciidoc_source.to_s
     end
 
     def footer_right
