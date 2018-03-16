@@ -1,5 +1,7 @@
 module Ladle
   module Type
+    require 'open3'
+
     Map = {
       '/Library/Fonts/GillSans.ttc' => [
         'Gill Sans Bold Italic.ttf',
@@ -28,7 +30,12 @@ module Ladle
               system_font
           end
           command = ['fontforge', '-c', FontForge_Script, system_font]
-          system *command
+          output, status = Open3.capture2e(*command)
+          unless status.success?
+            raise Ladle::Error,
+              "fontforge error while running %p:\n----\n%s\n----" %
+              [command, output]
+          end
           unless exist?(local_fonts)
             raise Ladle::Error,
               "we ran %p but didn't get expected files: %p" %
