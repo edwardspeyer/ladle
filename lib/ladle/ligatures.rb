@@ -8,7 +8,7 @@ module Ladle
       fi:  0xFB01,
       fl:  0xFB02,
     }
-    
+
     require 'asciidoctor'
 
     module_function

@@ -41,7 +41,7 @@ module Ladle
       Ladle::Hyphenation.extra_hyphenations = @config.extra_hyphenations
       Ladle::Type.prepare_type_in!(data_directory + 'type')
     end
-      
+
     def attributes(recipient)
       result = {
         'ladle-footer-right'  => @config.footer_right,

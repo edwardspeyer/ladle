@@ -25,7 +25,7 @@ module Ladle
       number = git_version + version_start
       '%d%s' % [number, star]
     end
-    
+
     def version_start
       1
     end
@@ -37,7 +37,7 @@ module Ladle
     def git_modified?
       not `git status --porcelain`.strip.empty?
     end
-    
+
     # :nodoc:
     def qualified_asciidoc_source
       @path.dirname + asciidoc_source.to_s

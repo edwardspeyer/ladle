@@ -2,7 +2,7 @@
 
 hazel.folder@example.com
 /
-link:tel:+15552023003[+1 (555) 202 3003] 
+link:tel:+15552023003[+1 (555) 202 3003]
 /
 3333 Three Ave #33, Threeville, TN
 
