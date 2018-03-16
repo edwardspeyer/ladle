@@ -6,11 +6,6 @@ class Config < Ladle::Config
     'Hazel Folder'
   end
 
-  # Used in PDF file names.
-  def document_type
-    'Resume'
-  end
-
   # Constants mean you only have to get the spelling right once.
   Facebook  = 'Facebook'
   Big_Lots  = 'Big Lots'
@@ -20,7 +15,7 @@ class Config < Ladle::Config
   #
   # A flag will also be set to allow conditional content: ifdef::Facebook[]
   def recipients
-    [Big_Lots, Facebook, Walmart]
+    [:anyone, Big_Lots, Facebook, Walmart]
   end
 
   # If flag_foo(recipient) returns true then an AsciiDoc attribute of the same

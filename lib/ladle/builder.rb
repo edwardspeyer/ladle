@@ -36,11 +36,12 @@ module Ladle
       prerequisites!
       name = @config.display_name
       type = @config.document_type
+      to_file = @config.file_name(recipient)
       Asciidoctor.convert_file(
         @config.qualified_asciidoc_source.to_s,
         safe: :safe,
         backend: :pdf,
-        to_file: "#{name} #{type} - #{recipient}.pdf",
+        to_file: to_file,
         attributes: attributes(recipient),
       )
     end
@@ -57,8 +58,8 @@ module Ladle
         'ladle-footer-right'  => @config.footer_right,
         'pdf-style'           => build_theme_file,
         'pdf-fontsdir'        => "#{data_directory}/type/",
-        'recipient'           => recipient, # TODO doc
-        recipient             => true,
+        'recipient'           => recipient.to_s, # TODO doc
+        recipient.to_s        => true,
       }
       flags = flags_for(recipient)
       log 'flags: %p' % [flags,]
