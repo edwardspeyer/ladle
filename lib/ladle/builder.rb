@@ -1,26 +1,36 @@
 module Ladle
   class Builder
-    require 'pathname'
     require 'asciidoctor-pdf'
+    require 'pathname'
+    require 'tmpdir'
 
     def initialize(config)
       @config = config
     end
 
     def build_all
-      unless @config.qualified_asciidoc_source.exist?
-        raise Ladle::Error,
-          "asciidoc source not found: %s" %
-          @config.qualified_asciidoc_source
+      with_tmp do
+        unless @config.qualified_asciidoc_source.exist?
+          raise Ladle::Error,
+            "asciidoc source not found: %s" %
+            @config.qualified_asciidoc_source
+        end
+        for recipient in @config.recipients
+          log "building for #{recipient}"
+          build_for(recipient)
+        end
+        log "done"
       end
-      for recipient in @config.recipients
-        log "building for #{recipient}"
-        build_for(recipient)
-      end
-      log "done"
     end
 
     private
+
+    def with_tmp
+      Dir.mktmpdir do |tmp|
+        @tmp = Pathname.new(tmp)
+        yield
+      end
+    end
 
     def build_for(recipient)
       prerequisites!
@@ -45,7 +55,7 @@ module Ladle
     def attributes(recipient)
       result = {
         'ladle-footer-right'  => @config.footer_right,
-        'pdf-style'           => "#{data_directory}/theme.yml",
+        'pdf-style'           => build_theme_file,
         'pdf-fontsdir'        => "#{data_directory}/type/",
         'recipient'           => recipient, # TODO doc
         recipient             => true,
@@ -54,6 +64,27 @@ module Ladle
       log 'flags: %p' % [flags,]
       flags.each{ |f| result[f] = true }
       return result
+    end
+
+    def build_theme_file
+      mutate_theme_file do |data|
+        # Some things have to be set directly in the YAML, because they
+        # directly control asciidoctor-pdf (e.g. margins) as opposed to being
+        # passed through to the Asciidoctor text engine (e.g. the footer.)
+
+        # Set the margins:
+        data['page']['ladle_margin'] =
+          '%.2fin' % @config.margin_inches
+      end
+    end
+
+    def mutate_theme_file
+      original = "#{data_directory}/theme.yml"
+      data = YAML.load_file(original)
+      yield data
+      tmp = @tmp + 'theme.yml'
+      tmp.open('w'){ |io| io.print(data.to_yaml) }
+      return tmp.to_s
     end
 
     def flags_for(recipient)

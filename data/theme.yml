@@ -12,11 +12,10 @@ font:
       normal: Gill Sans.ttf
 
 page:
+  ladle_margin: ~  # LᴀDʟE: this will be passed from Config#margin_inches
   background_color: ffffff
   layout: portrait
-  margin: [0.5in, 1.05in, 0.5in, 1.05in]
-  margin_inner: 0.75in
-  margin_outer: 0.59in
+  margin: [0.5in, $page_ladle_margin, 0.5in, $page_ladle_margin]
   size: A4
 base:
   align: justify
