@@ -54,15 +54,12 @@ module Ladle
     end
 
     def attributes(recipient)
-      recipient_attribute = recipient.to_s.downcase.gsub(/\s+/, '_')
       result = {
         'pdf-style'           => build_theme_file,
         'pdf-fontsdir'        => "#{data_directory}/type/",
-        'recipient'           => recipient.to_s, # TODO doc
-        recipient_attribute   => true,
       }
       flags = flags_for(recipient)
-      Log.log 'flags: %p' % [flags,]
+      Log.log 'flags: %s' % flags.map{ |f| "+#{f}" }.join(' ')
       flags.each{ |f| result[f] = true }
       return result
     end
@@ -93,16 +90,24 @@ module Ladle
     end
 
     def flags_for(recipient)
-      @config.class.instance_methods.select do |m|
+      flags = []
+      # A special recipient flag:
+      flags << recipient.to_s.downcase.gsub(/\s+/, '_')
+      # Any flags from flag_* methods:
+      methods = @config.class.instance_methods.select do |m|
         m.to_s.start_with?('flag_')
-      end.select do |flag|
+      end
+      for flag_method in methods.sort
         begin
-          @config.send(flag, recipient)
+          if @config.send(flag_method, recipient)
+            flags << flag_method.to_s
+          end
         rescue ArgumentError => ex
           raise Ladle::Error,
             "config method %p: %s" % [flag, ex.message]
         end
-      end.sort.map(&:to_s)
+      end
+      return flags
     end
 
     def data_directory
