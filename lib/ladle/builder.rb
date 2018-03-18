@@ -54,11 +54,12 @@ module Ladle
     end
 
     def attributes(recipient)
+      recipient_attribute = recipient.to_s.downcase.gsub(/\s+/, '_')
       result = {
         'pdf-style'           => build_theme_file,
         'pdf-fontsdir'        => "#{data_directory}/type/",
         'recipient'           => recipient.to_s, # TODO doc
-        recipient.to_s        => true,
+        recipient_attribute   => true,
       }
       flags = flags_for(recipient)
       log 'flags: %p' % [flags,]
