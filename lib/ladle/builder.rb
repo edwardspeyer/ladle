@@ -15,7 +15,7 @@ module Ladle
             "asciidoc source not found: %s" %
             @config.qualified_asciidoc_source
         end
-        for recipient in @config.recipients
+        for recipient in [@config.recipients].flatten
           log "building for #{recipient}"
           build_for(recipient)
         end
