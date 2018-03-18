@@ -16,10 +16,10 @@ module Ladle
             @config.qualified_asciidoc_source
         end
         for recipient in [@config.recipients].flatten
-          log "building for #{recipient}"
+          Log.log "building for #{recipient}"
           build_for(recipient)
         end
-        log "done"
+        Log.log "done"
       end
     end
 
@@ -62,7 +62,7 @@ module Ladle
         recipient_attribute   => true,
       }
       flags = flags_for(recipient)
-      log 'flags: %p' % [flags,]
+      Log.log 'flags: %p' % [flags,]
       flags.each{ |f| result[f] = true }
       return result
     end
@@ -103,10 +103,6 @@ module Ladle
             "config method %p: %s" % [flag, ex.message]
         end
       end.sort.map(&:to_s)
-    end
-
-    def log(message)
-      STDERR.puts '%s %s' % [Time.now, message]
     end
 
     def data_directory
