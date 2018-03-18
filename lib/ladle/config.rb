@@ -194,8 +194,11 @@ module Ladle
     # :nodoc:
     def initialize(path)
       @path = Pathname.new(path.to_s).realpath
+      @recipient = nil
     end
 
+    # :nodoc:
+    attr_accessor :recipient
 
     # :nodoc:
     def qualified_asciidoc_source

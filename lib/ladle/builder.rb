@@ -34,16 +34,16 @@ module Ladle
 
     def build_for(recipient)
       prerequisites!
-      name = @config.display_name
-      type = @config.document_type
-      to_file = @config.file_name(recipient)
+      @config.recipient = recipient
       Asciidoctor.convert_file(
         @config.qualified_asciidoc_source.to_s,
         safe: :safe,
         backend: :pdf,
-        to_file: to_file,
+        to_file: @config.file_name,
         attributes: attributes(recipient),
       )
+    ensure
+      @config.recipient = nil
     end
 
     def prerequisites!
