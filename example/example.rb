@@ -32,12 +32,12 @@ class Config < Ladle::Config
     end
   end
 
-  # Force extra hyphens to keep lines of text evenly spaced.
   def extra_hyphenations
-    {
-      'important' => %w{im portant},
-      'intranet'  => %w{in tra net},
-      'Surfboard' => %w{Surfboard},   # Never hyphenate this word
+    # NB: never hyphenate "Surfboard"!
+    %w{
+      im-portant
+      in-tra-net
+      Surfboard
     }
   end
 end

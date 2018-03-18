@@ -12,14 +12,12 @@ module Ladle
       @@extra_hyphenations
     end
 
-    def extra_hyphenations=(map)
-      for word, parts in map
-        unless parts.join == word
-          raise Ladle::Error,
-            "hyphenation: %p != %p" % [parts, word]
-        end
-      end
-      @@extra_hyphenations = map
+    def extra_hyphenations=(list)
+      @@extra_hyphenations = list.map do |hyphenated_word|
+        parts = hyphenated_word.split('-')
+        word = hyphenated_word.tr('-', '')
+        [word, parts]
+      end.to_h
     end
 
     def install_patch!
