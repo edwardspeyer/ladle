@@ -2,6 +2,15 @@ module Ladle
   #
   # Create a subclass of Ladle::Config to customize ladle's behavior.
   #
+  # Read and build the examples in +examples/+ for ideas on how to use these
+  # Config directives.
+  #
+  # During processing +recipient+ is set to the current recipient so you can do
+  # per-recipient customisations in the config ruby.
+  #
+  # (To make recipient-specific changes in the AsciiDoc, use
+  # <tt>ifdef::<recipient>[]</tt> macros.)
+  #
   class Config
 
     # Your name as it should appear in:
