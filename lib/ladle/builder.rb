@@ -55,7 +55,6 @@ module Ladle
 
     def attributes(recipient)
       result = {
-        'ladle-footer-right'  => @config.footer_right,
         'pdf-style'           => build_theme_file,
         'pdf-fontsdir'        => "#{data_directory}/type/",
         'recipient'           => recipient.to_s, # TODO doc
@@ -76,6 +75,10 @@ module Ladle
         # Set the margins:
         data['page']['ladle_margin'] =
           '%.2fin' % @config.margin_inches
+
+        # Set the footer text:
+        data['footer']['recto']['left']['content'] = @config.footer_left
+        data['footer']['recto']['right']['content'] = @config.footer_right
       end
     end
 
