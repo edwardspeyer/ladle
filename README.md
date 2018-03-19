@@ -18,18 +18,19 @@ $ brew install fontforge
 * Try building the example:
 
 ```
-$ bin/ladle example/example.rb
-2018-03-16 17:30:28 +0000 building for Facebook
-2018-03-16 17:30:29 +0000 flags: ["california"]
-2018-03-16 17:30:29 +0000 building for WalMart
-2018-03-16 17:30:29 +0000 flags: []
-2018-03-16 17:30:29 +0000 done
+$ bin/ladle example/cv.adoc
+watch-exec: bin/ladle example/config-dsl/cv.adoc
+ladle: building generic version
+ladle: building Big Lots version
+ladle: building Facebook version
+ladle: building Walmart version
+ladle: done
 
 $ ls *.pdf
-Hazel Folder Résumé - Big Lots.pdf
-Hazel Folder Résumé - Facebook.pdf
-Hazel Folder Résumé - Walmart.pdf
-Hazel Folder Résumé.pdf
+Hazel Folder Resume - Big Lots.pdf
+Hazel Folder Resume - Facebook.pdf
+Hazel Folder Resume - Walmart.pdf
+Hazel Folder Resume.pdf
 ```
 
-* Read the example source code, then roll your own!
+* Read the example's source code, then roll your own!

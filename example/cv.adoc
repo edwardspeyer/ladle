@@ -32,11 +32,11 @@ link:tel:+15552023003[+1 (555) 202 3003]
 
 * I hold the position of _Master of Sciences_ with the University.
 
-ifdef::flag_include_california_specific_sections[]
+ifdef::california[]
 * Including working with the renowned Californian box maker *Professor
   Surfboard* from UC San Diego.
 endif::[]
 
-ifdef::WalMart[]
+ifdef::walmart[]
 * I LOVE WALMART
 endif::[]

@@ -1,6 +1,7 @@
 module Ladle
   class Main
     require 'optparse'
+    require 'pathname'
 
     def initialize
       @opts = OptionParser.new do |opts|
@@ -18,13 +19,21 @@ module Ladle
 
     def _exec(argv)
       @opts.parse!(argv)
-      file = argv.first
-      unless file
-        @opts.abort('no config file given!')
+      if argv.empty?
+        raise Error, 'no asciidoc-file(s) given'
       end
 
-      for config in Config.load(file)
-        Builder.new(config).build_all
+      for arg in argv
+        asciidoc_file = Pathname.new(arg)
+        unless asciidoc_file.exist?
+          raise Error, 'asciidoc-file not found: %s' % asciidoc_file
+        end
+
+        config = Config.new
+        config_path = asciidoc_file.dirname + 'config'
+        config.load(config_path)
+
+        Builder.build_all(asciidoc_file, config)
       end
     end
   end

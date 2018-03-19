@@ -1,0 +1,12 @@
+name 'Hannah Albright'
+hyphenate 'im-portant', 'in-tra-net'
+hyphenate 'Surfboard'
+
+recipient 'Big Lots'
+  flag :california
+
+recipient 'Facebook'
+  flag :california
+  margin 2.01
+
+recipient 'Walmart'
