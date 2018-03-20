@@ -19,7 +19,6 @@ $ brew install fontforge
 
 ```
 $ bin/ladle example/cv.adoc
-watch-exec: bin/ladle example/config-dsl/cv.adoc
 ladle: building generic version
 ladle: building Big Lots version
 ladle: building Facebook version
