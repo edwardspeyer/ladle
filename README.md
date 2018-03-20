@@ -3,7 +3,8 @@
 _ladle_ is an _asciidoc_ template for building long-form CVs / résumés.
 It focuses is on having carefully considered defaults with the goal of
 producing easily readable typography.
-Use it when you already have the attention of a hiring manager, and you want
+
+Use it when you already have the attention of a hiring manager and you want
 to give them
 a five minute read that describes who you are and what you've done.
 
