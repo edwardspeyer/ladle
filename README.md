@@ -34,3 +34,10 @@ Hazel Folder Resume.pdf
 ```
 
 * Read the example's source code, then roll your own!
+
+
+## TODO
+
+* Show what everything looks like -- jpeg sceenshots!
+* Pick a Gill Sans fallback (Lato Bold or Lato Black?)
+* Show what the Gill Sans fallback would look like (jpegs)
