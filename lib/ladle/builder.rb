@@ -26,7 +26,7 @@ module Ladle
       prerequisites!(options)
       attributes = {
         'pdf-style'     => build_theme_file(options),
-        'pdf-fontsdir'  => "#{data_directory}/type/",
+        'pdf-fontsdir'  => "#{data_directory}/fonts/",
       }
       for flag in options[:flags]
         attributes[flag] = flag
@@ -45,7 +45,7 @@ module Ladle
       Ladle::Ligatures.install_patch!
       Ladle::Hyphenation.install_patch!
       Ladle::Hyphenation.extra_hyphenations = options[:hyphenations]
-      Ladle::Type.prepare_type_in!(data_directory + 'type')
+      Ladle::Fonts.prepare_fonts_in!(data_directory + 'fonts')
     end
 
     def build_theme_file(options)
