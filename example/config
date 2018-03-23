@@ -35,11 +35,11 @@ margin 1.41
 
 # Recipients, and recipient specific options.
 recipient 'Big Lots'
-  flag :california
-  flag :shuffleboard
+  flag :promote_my_california_connections
+  flag :mention_shuffleboard
 
 recipient 'Facebook'
-  flag :california
+  flag :promote_my_california_connections
 
 # A recipient doesn't have to have any options.  The following will generate a
 # generic resume with Walmart in the file name.
@@ -55,7 +55,7 @@ recipient 'Walmart'
   #   * My House, My Road, My Town, CA 90210
   #   endif::[]
   #
-  flag :address
+  flag :include_my_address
 
 
 # Because this is a Ruby config file, you can do all sorts of useful things

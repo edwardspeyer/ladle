@@ -4,7 +4,7 @@
 
 * hannah.folder@example.com
 * link:tel:+15552023003[+1 (555) 202 3003]
-ifdef::address[]
+ifdef::include_my_address[]
 * link:{my_house}[814 Vanderbilt Ave #22, Brooklyn, NY 11234]
 endif::[]
 
@@ -69,7 +69,7 @@ endif::[]
   at or under 50% of their to-date nominal upgrade times.  This efficiency
   saved $2m over the course of three years.
 
-ifdef::shuffleboard[]
+ifdef::mention_shuffleboard[]
 * I also started a company shuffleboard team which went on to win the
   Small-Business Shuffleboard Nationals in 2012, beating off rival
   small-business shuffleboard teams from all over North America.
@@ -135,7 +135,7 @@ A total of 3 *Box Manufacturer's Certificates* were obtained in:
   The degree of Master was subsequently conferred in 1988, upon completion of
   my thesis on the topic of _wood pulp acidity levels in Canadian birch stock_.
 
-ifdef::california[]
+ifdef::promote_my_california_connections[]
 * In my final year I worked closely with the renowned Californian box maker
   *Professor Surfboard* from _University of California at San Diego_.
 endif::[]
