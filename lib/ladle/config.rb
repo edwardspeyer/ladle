@@ -2,72 +2,65 @@ module Ladle
   class Config
     GENERIC = 'generic'
 
+    KEYS_SINGULAR = [
+      :name,
+      :document,
+      :margin,
+      :footer_left,
+      :footer_right,
+    ]
+
+    KEYS_PLURAL = [
+      :hyphenate,
+      :flag,
+    ]
+
+    DEFAULT_MARGIN = '1.08in'
+
+    DEFAULT_DOCUMENT_NAME = 'Resume'
+
     def initialize
       @recipients = {}
       recipient(GENERIC)
     end
 
     def recipient(recipient)
-      check_type(:recipient, recipient, String)
       @options = {}
-      @recipients[recipient] = @options
+      @recipients[recipient.to_s] = @options
     end
 
     def load(path)
       code = path.read
-      instance_eval(code, path.to_s)
-    # TODO use method_missing with a whitelist, instead of #name, #document
-    rescue NoMethodError => ex
-      loc = ex.backtrace_locations.first
-      pre = ex.message.split(' for ').first
-      raise Error, '%s:%d:%s' % [loc.path, loc.lineno, pre]
+      begin
+        instance_eval(code, path.to_s)
+      rescue Ladle::Error => ex
+        loc = ex.backtrace_locations[1]
+        raise Ladle::Error,
+          '%s: line %d: %s' % [loc.path, loc.lineno, ex.message]
+      end
     end
 
-    def name(name)
-      set(:name, name, String)
+    def method_missing(key, *args)
+      if KEYS_SINGULAR.include?(key)
+        if args.size == 1
+          set(key, args.first.to_s)
+        else
+          raise Ladle::Error, "expected 1 argument, got %p" % args
+        end
+      elsif KEYS_PLURAL.include?(key)
+        append(key, args.map(&:to_s))
+      else
+        raise Ladle::Error, "unrecognized key %s" % key
+      end
     end
 
-    def document(document)
-      set(:document, document, String)
-    end
-
-    def margin(margin)
-      set(:margin, margin, String)
-    end
-
-    def footer_left(content)
-      set(:footer_left, content, String)
-    end
-
-    def footer_right(content)
-      set(:footer_right, content, String)
-    end
-
-    def hyphenate(*words)
-      append(:hyphenations, words, String)
-    end
-
-    def flag(name)
-      append(:flags, [name.to_s], String)
-    end
-
-    def set(key, value, type)
-      check_type(key, value, type)
+    def set(key, value)
       @options[key] = value
     end
 
-    def append(key, values, type)
-      for value in values
-        check_type(key, value, type)
-      end
+    def append(key, values)
       @options[key] ||= []
       @options[key] += values
-    end
-
-    def check_type(key, value, type)
-      unless value.kind_of?(type)
-        raise Error, '%p: expected type %p, not %p' % [key, type, value]
-      end
     end
 
     def each_recipient
@@ -79,10 +72,6 @@ module Ladle
         yield recipient, options
       end
     end
-
-    DEFAULT_MARGIN = '1.08in'
-
-    DEFAULT_DOCUMENT_NAME = 'Resume'
 
     def add_defaults(options)
       options[:name] ||= nil
