@@ -4,7 +4,9 @@
 
 * hazel.folder@example.com
 * link:tel:+15552023003[+1 (555) 202 3003]
+ifdef::address[]
 * link:{my_house}[814 Vanderbilt Ave #22, Brooklyn, NY 11234]
+endif::[]
 
 
 === *Overview* ===
@@ -15,30 +17,129 @@
 
 * Most experiencd with *brown*, *white* and *grey* boxes.  Some experience with
   other box colors and also with *process automation* for box making all the
-  way from tree to box shipment.  I'm also well versed in *box team management*
-  and *principles of box design*.
+  way from tree-fell to box shipment.
+
+* I have industry standard qualifications in BTM and PBD: *Box Team Management*
+  and *Principles of Box Design*.
 
 
 === *Professional Experience* ===
 
-==== *GotBoxes.com?* — January 2015 to present ====
+==== *GotBoxes.com?* — March 2009 to present ====
 
-* I upgraded our box making machine to improve throughput by 140%.  Together
-  with my team of 7 we shipped multiple important improvements in box making
-  that were critical to the success of _Got Boxes?_ program of intra-business
-  improvements.
+* As a _Supervisory Cardboard Technician (Level 7)_ I upgraded our box making
+  machine to improve throughput by 140%.  Together with my team of 7 we shipped
+  multiple important improvements in box making that were critical to the
+  success of _Got Boxes?_ program of intra-business improvements.
+
+* I migrated a legacy chip-and-pulp box-blank workflow to a modern die-cut
+  corrugation process.  I successfully specified the system, engaged in a
+  compliant tender process, and procured a manufacturer installed system, all
+  in under 13 weeks, well below the median turnaround time for this type of
+  corrugation system installation.
+
+* I managed a team of 14 _Mullen Test_ technicians and through a series of four
+  week sprints over the course of two quarters, I led my team to improve
+  paperboard puncture resistance by a factor of five.  This saved the company
+  over $400k in the first two quarters after installation.
+
+* In addition to the above duties I also worked on team-building and
+  culture-building exercises within the company.  I interviewed 123 new
+  technicians of which I hired 15.  I took part in recruiting events and my
+  work directly resulted in sourcing and hiring two new site managers, one of
+  whom has gone on to be a site director.
+
+
+==== *Bangor Paper Mills Inc.* -- February 2000 to January 2009 ====
+
+* In my role as a _Senior Paper Mill Assistant_ I was responsible for ensuring
+  overall quality control at Bangor's brand new multi-million dollar paper and
+  cardboard manufacturing facility.  My work here was twice awarded as being
+  exemplary, with awards presented at company all-hands meetings in 2009 and
+  2011.
+
+* During my first three years I oversaw a _Six-Sigma_ process through all paper
+  and board basis-weights across two plants.  My efforts eradicated all errors
+  and blemishes in the product and when I left the department in 2010 we had
+  been over 1200 days without incident.
+
+* In 2010 I introduced a new _Boxboard_ quality control process which
+  eventually scaled to all board weights throughout the plant.  My work in
+  efficiency and process upgrades meant that all subsequent upgrades happened
+  at or under 50% of their to-date nominal upgrade times.  This efficiency
+  saved $2m over the course of three years.
+
+ifdef::shuffleboard[]
+* I also started a company shuffleboard team which went on to win the
+  Small-Business Shuffleboard Nationals in 2012, beating off rival
+  small-business shuffleboard teams from all over North America.
+endif::[]
+
+
+<<<<
+
+
+==== *Paulman Horbuckle Manufacturing* -- October 1992 to April 1999 ====
+
+* My first role was as an _Edge Crush Test Technician_ in the _Lorem Ipsum_
+  department.  Dolor sit amet, consectetur adipiscing elit, producing 150%
+  growth in sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  Ut enim ad minim veniam of the _plyboard process_, quis nostrud exercitation
+  ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+* I also duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident over 3 times as many sunt in culpa qui officia deserunt mollit anim
+  id est laborum.
+
+* I quia dolor sit amet consectetur adipiscing velit, sed quia non-numquam do
+  eius was able to ship on time producing 10x growth modi tempora incididunt,
+  ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
+  veniam.
+
+* My quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+  aliquid allowed the company to meet several export deadlines ex ea commodi
+  consequatur.  Quis autem vel eum iure reprehenderit, qui in ea voluptate
+  velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum
+  fugiat, quo voluptas nulla pariatur overall great team player.
+
+
+==== *Pinelog Americorp LLC* -- July 1989 to June 1992 ====
+
+* In the role of _Junior Boxer_ I sed ut perspiciatis, unde omnis iste natus
+  error sit voluptatem accusantium doloremque laudantium, totam rem aperiam
+  eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae
+  dicta sunt, explicabo achieving two promotions in my first 12 months.
+
+* I then nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut
+  fugit, sed quia consequuntur magni dolores eos for a total of $12m, qui
+  ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem
+  ipsum.
 
 === *Education* ===
 
+==== *Michigan Institute of Technology* -- October 1988 to July 1989 ====
+
+A total of 3 *Box Manufacturer's Certificates* were obtained in:
+
+* *BFT*: _grade A_ in Biscuit-style Folding Techniques
+* *ECT*: _grade A*_ in Edge Crush Testing
+* *OFP*: _grade A_ in Optimum Fold Positioning
+
+
 ==== *University of Munich* — October 1984 to July 1988 ====
 
-* I hold the position of _Master of Sciences_ with the University.
+* I hold the position of *Master of Sciences* with the University.
+
+* I graduated with a BA (Hons) in 1987, specializing in *Cardboard Sciences*.
+  The degree of Master was subsequently conferred in 1988, upon completion of
+  my thesis on the topic of _wood pulp acidity levels in Canadian birch stock_.
 
 ifdef::california[]
-* Including working with the renowned Californian box maker *Professor
-  Surfboard* from UC San Diego.
+* In my final year I worked closely with the renowned Californian box maker
+  *Professor Surfboard* from _University of California at San Diego_.
 endif::[]
 
-ifdef::walmart[]
-* I LOVE WALMART
-endif::[]
+* I played shuffleboard for the University, twice reaching and once winning the
+  national finals.  I was also treasurer for the University _phoblography_
+  club.

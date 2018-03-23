@@ -1,12 +1,40 @@
 name 'Hannah Albright'
+
+# Some word or words with hyphenation hints.
 hyphenate 'im-portant', 'in-tra-net'
+
+# You might want to avoid hyphenating some words, e.g. proper nouns.  You can
+# do this by using hyphenate with an unhyphenated word:
 hyphenate 'Surfboard'
 
+# Example flag to include postal address on all CVs.
+#
+# You could make this per-recipient if you wanted to hide your address on the
+# generic CV, but include it on specific CVs for individual companies.
+flag :address
+
+# The default margin of 1.08" is quite readable, but making the text even
+# narrower, if you can, will only makes it more legible.
+margin 1.41
+
+# Recipients, and recipient specific options.
 recipient 'Big Lots'
   flag :california
+  flag :shuffleboard
 
 recipient 'Facebook'
   flag :california
-  margin 2.01
 
+# A recipient doesn't have to have any options.  The following will generate a
+# generic resume with Walmart in the file name.
 recipient 'Walmart'
+
+# Because this is a Ruby config file, you can do all sorts of useful things
+# that will help both you and the perception of Ruby in general:
+for state in %w{
+  AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO
+  MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY
+}
+  #recipient "Amazon USA, #{state} shipping office"
+  #flag :california if state == 'CA'
+end
