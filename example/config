@@ -8,12 +8,6 @@ hyphenate 'im-portant', 'in-tra-net'
 # do this by using hyphenate with an unhyphenated word:
 hyphenate 'Surfboard'
 
-# Example flag to include postal address on all CVs.
-#
-# You could make this per-recipient if you wanted to hide your address on the
-# generic CV, but include it on specific CVs for individual companies.
-flag :address
-
 # The default margin of 1.08" is quite readable, but making the text even
 # narrower, if you can, will only makes it more legible.
 margin 1.41
@@ -50,6 +44,19 @@ recipient 'Facebook'
 # A recipient doesn't have to have any options.  The following will generate a
 # generic resume with Walmart in the file name.
 recipient 'Walmart'
+  # An example flag for an employer who wants to know your address.
+  #
+  # You would need to then use this with an Asciidoc ifdef, e.g.:
+  #
+  #   === Contact ===
+  #   * my.email@example.com
+  #   * 1-800-MY-PHONE
+  #   ifdef::address[]
+  #   * My House, My Road, My Town, CA 90210
+  #   endif::[]
+  #
+  flag :address
+
 
 # Because this is a Ruby config file, you can do all sorts of useful things
 # that will help both you and the perception of Ruby in general:
