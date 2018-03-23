@@ -39,6 +39,10 @@ module Ladle
       set(:footer_left, content, String)
     end
 
+    def footer_right(content)
+      set(:footer_right, content, String)
+    end
+
     def hyphenate(*words)
       append(:hyphenations, words, String)
     end

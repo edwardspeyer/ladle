@@ -25,6 +25,7 @@ module Ladle
     def build_one(asciidoc_file, recipient, options)
       prerequisites!(options)
       attributes = {
+        'name'          => options[:name],
         'pdf-style'     => build_theme_file(options),
         'pdf-fontsdir'  => "#{data_directory}/fonts/",
       }

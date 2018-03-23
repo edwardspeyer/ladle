@@ -1,5 +1,5 @@
 # Your name, used in output files and also in the default footer.
-name 'Hannah Albright'
+name 'Hannah Folder'
 
 # Some word or words with hyphenation hints.
 hyphenate 'im-portant', 'in-tra-net'
@@ -17,6 +17,27 @@ flag :address
 # The default margin of 1.08" is quite readable, but making the text even
 # narrower, if you can, will only makes it more legible.
 margin 1.41
+
+# Footer, left side.  Default is "<name> -- <page> of <total-pages>".
+#
+# If you want to specify your own, you can use the Asciidoctor provided string
+# interpolation, e.g.
+#
+#footer_left 'Here be page number {page-number} of {page-count} for {name}\'s CV'
+
+# Footer, right side.  The default is some version and copyright information.
+#
+# If you want to make your own and you are in a git repo, you may be
+# interested in these extra Ruby functions:
+#
+# vcs_version:
+#   The number of commits from the very first commit to the tip of
+#   this branch.
+#
+# vcs_modified?:
+#   True if there are local modifications.
+#
+#footer_right "This be version #{vcs_version}#{vcs_modified? ? '++' : ''}"
 
 # Recipients, and recipient specific options.
 recipient 'Big Lots'

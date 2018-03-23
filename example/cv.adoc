@@ -1,8 +1,8 @@
-== Hazel Folder ==
+== Hannah Folder ==
 
 :my_house: https://goo.gl/maps/9KfDA6VMyTE2
 
-* hazel.folder@example.com
+* hannah.folder@example.com
 * link:tel:+15552023003[+1 (555) 202 3003]
 ifdef::address[]
 * link:{my_house}[814 Vanderbilt Ave #22, Brooklyn, NY 11234]
