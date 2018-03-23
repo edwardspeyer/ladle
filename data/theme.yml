@@ -79,9 +79,7 @@ menu_caret_content: " <font size=\"1.15em\"><color rgb=\"b12146\">\u203a</color>
 heading:
   align: left
   font_color: $base_font_color
-  font_family: Gill Sans
-  #font_family: Lato Black
-  #font_family: Ubuntu
+  font_family: $ladle_sans_serif
   font_style: normal
   h1_font_size: floor($base_font_size * 2.6)
   h2_font_size: floor($base_font_size * 1.8)

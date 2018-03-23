@@ -6,10 +6,16 @@ module Ladle
     module_function
 
     def build_all(asciidoc_file, config)
+      require 'asciidoctor-pdf'
+      Ladle::Ligatures.install_patch!
+      Ladle::Hyphenation.install_patch!
+      Ladle::Fonts.prepare_fonts!
+      sans_serif = Fonts.sans_serif
+      Log.log("using #{sans_serif} for sans-serif")
       with_tmp do
         config.each_recipient do |recipient, options|
           Log.log "building #{recipient} version"
-          build_one(asciidoc_file, recipient, options)
+          build_one(asciidoc_file, recipient, options, sans_serif)
         end
         Log.log "done"
       end
@@ -22,12 +28,12 @@ module Ladle
       end
     end
 
-    def build_one(asciidoc_file, recipient, options)
-      prerequisites!(options)
+    def build_one(asciidoc_file, recipient, options, sans_serif)
+      Ladle::Hyphenation.extra_hyphenations = options[:hyphenations]
       attributes = {
         'name'          => options[:name],
-        'pdf-style'     => build_theme_file(options),
-        'pdf-fontsdir'  => "#{data_directory}/fonts/",
+        'pdf-style'     => build_theme_file(options, sans_serif),
+        'pdf-fontsdir'  => "#{Paths::DATA}/fonts/",
       }
       for flag in options[:flags]
         attributes[flag] = flag
@@ -41,26 +47,16 @@ module Ladle
       )
     end
 
-    def prerequisites!(options)
-      require 'asciidoctor-pdf'
-      Ladle::Ligatures.install_patch!
-      Ladle::Hyphenation.install_patch!
-      Ladle::Hyphenation.extra_hyphenations = options[:hyphenations]
-      Ladle::Fonts.prepare_fonts_in!(data_directory + 'fonts')
-    end
-
-    def build_theme_file(options)
-      original = (data_directory + 'theme.yml').read
-      options_with_string_keys = options.map{ |k,v| [k.to_s, v] }.to_h
-      addenda = {'ladle' => options_with_string_keys}.to_yaml
+    def build_theme_file(options, sans_serif)
+      original = (Paths::DATA + 'theme.yml').read
+      options = options.map{ |k,v| [k.to_s, v] }.to_h
+      # Figure out the sans-serif font
+      options['sans_serif'] = sans_serif
+      addenda = {'ladle' => options}.to_yaml
       theme = addenda + "\n" + original + "\n"
       theme_file = @tmp + 'theme.yml'
       theme_file.open('w'){ |io| io.print(theme) }
       return theme_file.to_s
-    end
-
-    def data_directory
-      Pathname.new(__FILE__).realpath.dirname.dirname.dirname + 'data'
     end
   end
 end

@@ -11,30 +11,35 @@ module Ladle
 
     module_function
 
-    # TODO handle missing system fonts for non macOS systems.  We have Lato
-    # Black installed, but how would we fall back to it?
+    GILL_SANS = 'Gill Sans'
+    LATO_BLACK = 'Lato Black'
 
-    def prepare_fonts_in!(directory)
-      Dir.chdir(directory) do
-        prepare_font 'Gill Sans',
-          '/Library/Fonts/GillSans.ttc',
-          'Gill Sans Bold Italic.ttf',
-          'Gill Sans Bold.ttf',
-          'Gill Sans Italic.ttf',
-          'Gill Sans.ttf'
+    def prepare_fonts!
+      prepare_font GILL_SANS,
+        '/Library/Fonts/GillSans.ttc',
+        'Gill Sans Bold Italic.ttf',
+        'Gill Sans Bold.ttf',
+        'Gill Sans Italic.ttf',
+        'Gill Sans.ttf'
+    end
+
+    def sans_serif
+      glob = '%s/%s/*.ttf' % [Paths::FONTS, GILL_SANS]
+      if Dir.glob(glob).empty?
+        LATO_BLACK
+      else
+        GILL_SANS
       end
     end
 
     def prepare_font(name, system_font, *local_fonts)
-      unless exist? system_font
-        raise Ladle::Error,
-          "unable to convert system font, file not found: %p" %
-          system_font
-      end
-      Dir.mkdir(name) unless Dir.exist?(name)
-      Dir.chdir(name) do
+      return unless exist? system_font
+      font_directory = Paths::FONTS + name
+      Dir.mkdir(font_directory) unless Dir.exist?(font_directory)
+      Dir.chdir(font_directory) do
         return if exist? local_fonts
         command = ['fontforge', '-c', FontForge_Script, system_font]
+        Log.log('executing fontforge to build %s' % name)
         output, status = Open3.capture2e(*command)
         unless status.success?
           raise Ladle::Error,
