@@ -50,6 +50,12 @@ module Ladle
     end
 
     def build_theme_file(options)
+      # TODO we could do this simply by appending a bunch of "ladle: foo: bar"
+      # YAML to the end of the default theme, and referencing it with
+      # $ladle_foo_bar throughout the theme.
+      #
+      # TODO explain somewhere what the different interpolations are (YAML /
+      # {}asciidoc / others?)
       mutate_theme_file do |data|
         # Some things have to be set directly in the YAML, because they
         # directly control asciidoctor-pdf (e.g. margins) as opposed to being

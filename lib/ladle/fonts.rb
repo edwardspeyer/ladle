@@ -11,6 +11,9 @@ module Ladle
 
     module_function
 
+    # TODO handle missing system fonts for non macOS systems.  We have Lato
+    # Black installed, but how would we fall back to it?
+
     def prepare_fonts_in!(directory)
       Dir.chdir(directory) do
         prepare_font 'Gill Sans',
