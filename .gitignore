@@ -1,6 +1,6 @@
 *.pdf
 .*.swp
 .DS_Store
-data/type/Gill Sans/
+data/fonts/Gill Sans/*
 doc
 tags
