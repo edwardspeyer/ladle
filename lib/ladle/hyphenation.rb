@@ -44,8 +44,19 @@ module Ladle
       Shy_Hyphen = '&#173;'
       PCDATA = /(?:(&[a-z]+;|<[^>]+>)|([^&<]+))/
 
-      # TODO look at $LANG?
-      @@hyphenator = Text::Hyphen.new(language: 'en_uk', left: 2, right: 2)
+      @@hyphenator =
+        begin
+          language =
+            case ENV['LANG']
+            when /^en_GB/ then 'en_uk'
+            else 'en_us'
+            end
+          Ladle::Log.log(
+            'hyphenating with Text::Hyphen %p based on locale of %p' %
+            [language, ENV['LANG']]
+          )
+          Text::Hyphen.new(language: language, left: 2, right: 2)
+        end
 
       def content
         case @content_model
