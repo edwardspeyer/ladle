@@ -30,6 +30,15 @@ font:
       italic: Ubuntu/Ubuntu-Italic.ttf
       bold_italic: Ubuntu/Ubuntu-BoldItalic.ttf
 
+    M Plus Fallback:
+      normal: M Plus/mplus1p-regular-fallback.ttf
+      bold: M Plus/mplus1p-regular-fallback.ttf
+      italic: M Plus/mplus1p-regular-fallback.ttf
+      bold_italic: M Plus/mplus1p-regular-fallback.ttf
+
+  fallbacks:
+    - M Plus Fallback
+
 page:
   ladle_margin: ~  # LᴀDʟE: this will be passed from Config#margin_inches
   background_color: ffffff
