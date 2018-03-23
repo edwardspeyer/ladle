@@ -76,12 +76,16 @@ module Ladle
       end
     end
 
+    DEFAULT_MARGIN = 1.08
+
+    DEFAULT_DOCUMENT_NAME = 'Resume'
+
     def add_defaults(options)
       options[:name] ||= nil
 
-      options[:document] ||= 'Resume'
+      options[:document] ||= DEFAULT_DOCUMENT_NAME
 
-      options[:margin] ||= 1.08
+      options[:margin] ||= DEFAULT_MARGIN
 
       options[:file_name] ||=
         begin
