@@ -1,34 +1,34 @@
 font:
   catalog:
     EB Garamond:
-      bold: EB Garamond/EBGaramond-Bold.ttf
-      bold_italic: EB Garamond/EBGaramond-BoldItalic.ttf
-      italic: EB Garamond/EBGaramond-Italic.ttf
       normal: EB Garamond/EBGaramond-Regular.ttf
+      bold: EB Garamond/EBGaramond-Bold.ttf
+      italic: EB Garamond/EBGaramond-Italic.ttf
+      bold_italic: EB Garamond/EBGaramond-BoldItalic.ttf
 
     Gill Sans:
-      bold_italic: Gill Sans/Gill Sans Bold Italic.ttf
+      normal: Gill Sans/Gill Sans.ttf
       bold: Gill Sans/Gill Sans Bold.ttf
       italic: Gill Sans/Gill Sans Italic.ttf
-      normal: Gill Sans/Gill Sans.ttf
+      bold_italic: Gill Sans/Gill Sans Bold Italic.ttf
 
     Lato Black:
-      bold_italic: Lato/Lato-BlackItalic.ttf
+      normal: Lato/Lato-Regular.ttf
       bold: Lato/Lato-Black.ttf
       italic: Lato/Lato-Italic.ttf
-      normal: Lato/Lato-Regular.ttf
+      bold_italic: Lato/Lato-BlackItalic.ttf
 
     Lato Bold:
-      bold_italic: Lato/Lato-BoldItalic.ttf
+      normal: Lato/Lato-Regular.ttf
       bold: Lato/Lato-Bold.ttf
       italic: Lato/Lato-Italic.ttf
-      normal: Lato/Lato-Regular.ttf
+      bold_italic: Lato/Lato-BoldItalic.ttf
 
     Ubuntu:
-      bold_italic: Ubuntu/Ubuntu-BoldItalic.ttf
+      normal: Ubuntu/Ubuntu-Regular.ttf
       bold: Ubuntu/Ubuntu-Bold.ttf
       italic: Ubuntu/Ubuntu-Italic.ttf
-      normal: Ubuntu/Ubuntu-Regular.ttf
+      bold_italic: Ubuntu/Ubuntu-BoldItalic.ttf
 
 page:
   ladle_margin: ~  # LᴀDʟE: this will be passed from Config#margin_inches
