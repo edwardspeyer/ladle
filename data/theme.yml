@@ -43,7 +43,7 @@ page:
   ladle_margin: ~  # LᴀDʟE: this will be passed from Config#margin_inches
   background_color: ffffff
   layout: portrait
-  margin: [0.5in, $page_ladle_margin, 0.5in, $page_ladle_margin]
+  margin: [0.5in, $ladle_margin, 0.5in, $ladle_margin]
   size: A4
 
 base:
@@ -245,10 +245,10 @@ footer:
   recto:
     left:
       font_color: 808080
-      content: ~  # LᴀDʟE: see Config#footer_left
+      content: $ladle_footer_left
     right:
       font_color: $footer_recto_left_font_color
-      content: ~  # LᴀDʟE: see Config#footer_right
+      content: $ladle_footer_right
   verso:
     left:
       font_color: $footer_recto_left_font_color

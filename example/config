@@ -10,7 +10,7 @@ hyphenate 'Surfboard'
 
 # The default margin of 1.08" is quite readable, but making the text even
 # narrower, if you can, will only makes it more legible.
-margin 1.41
+margin '1.41in'
 
 # Footer, left side.  Default is "<name> -- <page> of <total-pages>".
 #

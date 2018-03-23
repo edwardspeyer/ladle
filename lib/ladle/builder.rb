@@ -50,34 +50,13 @@ module Ladle
     end
 
     def build_theme_file(options)
-      # TODO we could do this simply by appending a bunch of "ladle: foo: bar"
-      # YAML to the end of the default theme, and referencing it with
-      # $ladle_foo_bar throughout the theme.
-      #
-      # TODO explain somewhere what the different interpolations are (YAML /
-      # {}asciidoc / others?)
-      mutate_theme_file do |data|
-        # Some things have to be set directly in the YAML, because they
-        # directly control asciidoctor-pdf (e.g. margins) as opposed to being
-        # passed through to the Asciidoctor text engine (e.g. the footer.)
-
-        # Set the margins:
-        data['page']['ladle_margin'] =
-          '%.2fin' % options[:margin]
-
-        # Set the footer text:
-        data['footer']['recto']['left']['content'] = options[:footer_left]
-        data['footer']['recto']['right']['content'] = options[:footer_right]
-      end
-    end
-
-    def mutate_theme_file
-      original = "#{data_directory}/theme.yml"
-      data = YAML.load_file(original)
-      yield data
-      tmp = @tmp + 'theme.yml'
-      tmp.open('w'){ |io| io.print(data.to_yaml) }
-      return tmp.to_s
+      original = (data_directory + 'theme.yml').read
+      options_with_string_keys = options.map{ |k,v| [k.to_s, v] }.to_h
+      addenda = {'ladle' => options_with_string_keys}.to_yaml
+      theme = addenda + "\n" + original + "\n"
+      theme_file = @tmp + 'theme.yml'
+      theme_file.open('w'){ |io| io.print(theme) }
+      return theme_file.to_s
     end
 
     def data_directory

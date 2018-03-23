@@ -32,7 +32,7 @@ module Ladle
     end
 
     def margin(margin)
-      set(:margin, margin, Float)
+      set(:margin, margin, String)
     end
 
     def footer_left(content)
@@ -80,7 +80,7 @@ module Ladle
       end
     end
 
-    DEFAULT_MARGIN = 1.08
+    DEFAULT_MARGIN = '1.08in'
 
     DEFAULT_DOCUMENT_NAME = 'Resume'
 
