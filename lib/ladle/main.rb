@@ -4,7 +4,13 @@ module Ladle
     require 'pathname'
 
     def initialize
+      @globals = {
+        prepare_fonts: true,
+      }
       @opts = OptionParser.new do |opts|
+        opts.on('--skip-fonts', 'skip font conversion step') do
+          @globals[:prepare_fonts] = false
+        end
       end
     end
 
@@ -38,7 +44,7 @@ module Ladle
         config.load(config_path)
 
         require 'ladle/builder'
-        Builder.build_all(asciidoc_file, config)
+        Builder.build_all(asciidoc_file, config, @globals)
       end
     end
   end

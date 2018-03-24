@@ -38,6 +38,18 @@ module Ladle
       Dir.mkdir(font_directory) unless Dir.exist?(font_directory)
       Dir.chdir(font_directory) do
         return if exist? local_fonts
+
+        begin
+          Open3.capture2e(['fontforge', '-h'])
+        rescue Errno::ENOENT
+          raise Ladle::Error,
+            (
+              "unable to convert %s; " +
+              "run 'brew install fontforge' " +
+              "or use --skip-fonts"
+            ) % name
+        end
+
         command = ['fontforge', '-c', FontForge_Script, system_font]
         Log.log('executing fontforge to build %s' % name)
         output, status = Open3.capture2e(*command)

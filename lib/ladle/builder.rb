@@ -5,8 +5,8 @@ module Ladle
 
     module_function
 
-    def build_all(asciidoc_file, config)
-      prerequisites!
+    def build_all(asciidoc_file, config, globals)
+      prerequisites!(globals)
       sans_serif = Fonts.sans_serif
       Log.log("using #{sans_serif} for sans-serif")
       with_tmp do
@@ -18,7 +18,7 @@ module Ladle
       end
     end
 
-    def prerequisites!
+    def prerequisites!(globals)
       begin
         require 'asciidoctor-pdf'
         require 'text-hyphen'
@@ -40,8 +40,11 @@ module Ladle
       Ladle::Ligatures.install_patch!
       require 'ladle/hyphenation'
       Ladle::Hyphenation.install_patch!
+
       require 'ladle/fonts'
-      Ladle::Fonts.prepare_fonts!
+      if globals[:prepare_fonts]
+        Ladle::Fonts.prepare_fonts!
+      end
     end
 
     def with_tmp
