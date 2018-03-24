@@ -68,7 +68,7 @@ module Ladle
       for recipient, options in @recipients
         options[:recipient] = recipient
         options = add_defaults(generic_options.merge(options))
-        options[:flags] << recipient.downcase.gsub(/\s+/, '_')
+        options[:flag] << recipient.downcase.gsub(/\s+/, '_')
         yield recipient, options
       end
     end
@@ -111,9 +111,9 @@ module Ladle
           buf.join(' ')
         end
 
-      options[:flags] ||= []
+      options[:flag] ||= []
 
-      options[:hyphenations] ||= []
+      options[:hyphenate] ||= []
 
       return options
     end
