@@ -4,7 +4,7 @@ _ladle_ is an _asciidoc_ template for building long-form CVs / résumés.
 It focuses is on having carefully considered defaults with the goal of
 producing easily readable typography.
 
-![Example of source and output](https://github.com/edwardspeyer/ladle/blob/master/example/output/screenshot.png)
+<img src="https://github.com/edwardspeyer/ladle/blob/master/example/output/screenshot.png" width="622">
 
 More examples are [in the repository.](https://github.com/edwardspeyer/ladle/tree/master/example/output)
 
