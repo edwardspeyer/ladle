@@ -7,10 +7,32 @@ module Ladle
       @globals = {
         prepare_fonts: true,
       }
+      @config_path = nil
       @opts = OptionParser.new do |opts|
+        opts.banner = 'Usage: ladle [options] <asciidoc-file>'
+
         opts.on('--skip-fonts', 'skip font conversion step') do
           @globals[:prepare_fonts] = false
         end
+
+        opts.on(
+          '--config PATH',
+          "path to config (default is '<asciidoc-dir>/config')"
+        ) do |p|
+          @config_path = p
+        end
+
+        opts.separator <<~TEXT
+
+          Example:
+            * Have a look at the example code in <src>/example/
+            * Build it with:
+
+              $ bin/ladle example/cv.adoc --skip-fonts
+
+            * ladle will tell you if you are missing any pre-requisites
+
+        TEXT
       end
     end
 
@@ -40,7 +62,17 @@ module Ladle
 
         require 'ladle/config'
         config = Config.new
-        config_path = asciidoc_file.dirname + 'config'
+        config_path =
+          if @config_path
+            Pathname.new(@config_path)
+          else
+            asciidoc_file.dirname + 'config'
+          end
+
+        unless config_path.exist?
+          raise Ladle::Error, "config not found: %s" % config_path
+        end
+
         config.load(config_path)
 
         require 'ladle/builder'
