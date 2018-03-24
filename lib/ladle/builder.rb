@@ -6,10 +6,7 @@ module Ladle
     module_function
 
     def build_all(asciidoc_file, config)
-      require 'asciidoctor-pdf'
-      Ladle::Ligatures.install_patch!
-      Ladle::Hyphenation.install_patch!
-      Ladle::Fonts.prepare_fonts!
+      prerequisites!
       sans_serif = Fonts.sans_serif
       Log.log("using #{sans_serif} for sans-serif")
       with_tmp do
@@ -19,6 +16,32 @@ module Ladle
         end
         Log.log "done"
       end
+    end
+
+    def prerequisites!
+      begin
+        require 'asciidoctor-pdf'
+        require 'text-hyphen'
+      rescue LoadError
+        raise Ladle::Error, <<~TEXT
+          missing required gems:
+
+            * asciidoctor-pdf
+            * text-hyphen
+
+          Install them with your package manager, or with:
+
+            gem install --user-install --pre --no-ri --no-rdoc \\
+              asciidoctor-pdf text-hyphen
+
+        TEXT
+      end
+      require 'ladle/ligatures'
+      Ladle::Ligatures.install_patch!
+      require 'ladle/hyphenation'
+      Ladle::Hyphenation.install_patch!
+      require 'ladle/fonts'
+      Ladle::Fonts.prepare_fonts!
     end
 
     def with_tmp

@@ -9,6 +9,9 @@ module Ladle
     end
 
     def exec(argv)
+      require 'ladle/error'
+      require 'ladle/log'
+      require 'ladle/paths'
       begin
         _exec(argv)
       rescue Ladle::Error => ex
@@ -29,10 +32,12 @@ module Ladle
           raise Error, 'asciidoc-file not found: %s' % asciidoc_file
         end
 
+        require 'ladle/config'
         config = Config.new
         config_path = asciidoc_file.dirname + 'config'
         config.load(config_path)
 
+        require 'ladle/builder'
         Builder.build_all(asciidoc_file, config)
       end
     end
