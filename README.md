@@ -2,20 +2,29 @@
 
 ## What is Ladle?
 
-* Helps you write your **CV** / **resume**
-* Write in **AsciiDoc** and generate **PDF** output
-* Focuses on **easily readable typograph**
-* Carefully considered default typefaces and metrics; examples [**in the repository**](example/output)
-* Works best with **long-format** writing where you already have someone's attention
-* Minimal dependencies (~20MB); no 3.5GB of MacTeX required!
-* For a quick-read resume, consider
-[Deedy-Resume](https://github.com/deedy/Deedy-Resume),
-[best-resume-ever](https://github.com/salomonelli/best-resume-ever)
-or a LaTeX template
-(e.g.
-[①](https://www.overleaf.com/latex/templates/modern-cv-and-cover-letter-2015-version/sttkgjcysttn#.WrYsImacZE4)
-[②](https://www.sharelatex.com/project/55db6ac384d1be370a7d4b9a)
-[③](https://www.careercup.com/resume))
+* Helps you write your **CV**, and maybe a **resume** too
+* You write in **AsciiDoc** and _ladle_ generates **PDF** output
+* It focuses on producing **easily readable typography**
+* It has carefully considered defaults; see the examples [**in the repository**](example/output)
+* Minimal dependencies!  20MB vs 3.5GB of MacTeX!
+
+### What it isn't
+
+_ladle_ is less well suited for _résumés_.
+It is best suited to long-form curriculum vitae, the kind of document
+you would provide to someone when you already have their attention
+and know they'll have five minutes devoted to reading all about you.
+
+Instead, for a one-page resume, the following may be useful:
+* [Deedy-Resume](https://github.com/deedy/Deedy-Resume):
+  pretty, but divisive in style!
+* [best-resume-ever](https://github.com/salomonelli/best-resume-ever),
+  though it looks like you'll need to fix a rendering bug.
+* Xavier Danaux's
+  [LaTeX template](https://www.overleaf.com/latex/templates/modern-cv-and-cover-letter-2015-version/sttkgjcysttn)
+* The Breakout List's
+  [LaTeX template](https://www.sharelatex.com/project/55db6ac384d1be370a7d4b9a)
+* [careercup.com's tools](https://www.careercup.com/resume)
 
 
 ## Example
