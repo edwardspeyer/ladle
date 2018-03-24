@@ -1,14 +1,26 @@
-# LᴀDʟE
+# Ladle
 
-_ladle_ is an _asciidoc_ template for building long-form CVs / résumés.
-It focuses on having carefully considered defaults with the goal of
-producing easily readable typography.
-The repository contains some [example PDFs built with _ladle_](example/output).
+## What is Ladle?
 
-<img src="https://github.com/edwardspeyer/ladle/blob/master/example/output/screenshot.png" width="622">
+* Helps you write your **CV** / **resume**
+* Write in **AsciiDoc** and generate **PDF** output
+* Focuses on **easily readable typograph**
+* Carefully considered default typefaces and metrics; examples [**in the repository**](example/output)
+* Works best with **long-format** writing where you already have someone's attention
+* Minimal dependencies (~20MB); no 3.5GB of MacTeX required!
+* For a quick-read resume, consider
+[Deedy-Resume](https://github.com/deedy/Deedy-Resume),
+[best-resume-ever](https://github.com/salomonelli/best-resume-ever)
+or a LaTeX template
+(e.g.
+[①](https://www.overleaf.com/latex/templates/modern-cv-and-cover-letter-2015-version/sttkgjcysttn#.WrYsImacZE4)
+[②](https://www.sharelatex.com/project/55db6ac384d1be370a7d4b9a)
+[③](https://www.careercup.com/resume))
 
 
 ## Example
+
+<img src="https://github.com/edwardspeyer/ladle/blob/master/example/output/screenshot.png" width="622">
 
 _ladle_ builds PDF resumes at the command line (run with `--help` for more information):
 
