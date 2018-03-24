@@ -40,7 +40,6 @@ font:
     - M Plus Fallback
 
 page:
-  ladle_margin: ~  # LᴀDʟE: this will be passed from Config#margin_inches
   background_color: ffffff
   layout: portrait
   margin: [0.5in, $ladle_margin, 0.5in, $ladle_margin]
