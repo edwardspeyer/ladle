@@ -1,5 +1,8 @@
-# Your name, used in output files and also in the default footer.
+# Your name and the type of document, used to:
+#   * name the PDF output files; and
+#   * put your name in the default footer.
 name 'Hannah Folder'
+#document 'Resume'
 
 # Some word or words with hyphenation hints.
 hyphenate 'im-portant', 'in-tra-net'
