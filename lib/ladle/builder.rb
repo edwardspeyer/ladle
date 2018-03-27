@@ -72,13 +72,13 @@ module Ladle
     end
 
     def build_one(asciidoc_file, recipient, options, sans_serif)
-      Ladle::Hyphenation.extra_hyphenations = options[:hyphenate]
+      Ladle::Hyphenation.extra_hyphenations = options[:hyphenations]
       attributes = {
         'name'          => options[:name],
         'pdf-style'     => build_theme_file(options, sans_serif),
         'pdf-fontsdir'  => "#{Paths::DATA}/fonts/",
       }
-      for flag in options[:flag]
+      for flag in options[:flags]
         attributes[flag] = flag
       end
       Asciidoctor.convert_file(

@@ -71,9 +71,7 @@ module Ladle
         # take a "deep" copy (we'll assume that no value is itself a compound
         # datastructure.)
         copy = generic_options.merge(options).map{ |k, v| [k, v.dup] }.to_h
-        copy[:recipient] = recipient
-        copy = set_defaults(copy)
-        copy[:flag] << recipient.downcase.gsub(/\s+/, '_')
+        copy = set_defaults(copy, recipient)
         yield recipient, copy
       end
     end
@@ -83,24 +81,24 @@ module Ladle
     # Normalize the options hash by copying its keys into a new hash.
     # A side-effect of doing this is that it enforces a normal order on the
     # result hash
-    def set_defaults(options)
+    def set_defaults(options, recipient)
       result = {}
 
       result[:name] = options[:name] || nil
 
       result[:document] = options[:document] || DEFAULT_DOCUMENT_NAME
 
-      result[:recipient] = options[:recipient]
+      result[:recipient] = recipient
 
       result[:margin] = options[:margin] || DEFAULT_MARGIN
 
       result[:file_name] = options[:file_name] ||
         begin
           stem = [:name, :document].map{ |k| options[k] }.compact.join(' ')
-          if options[:recipient] == GENERIC
+          if recipient == GENERIC
             '%s.pdf' % [stem]
           else
-            '%s - %s.pdf' % [stem, options[:recipient]]
+            '%s - %s.pdf' % [stem, recipient]
           end
         end
 
@@ -125,9 +123,17 @@ module Ladle
           buf.join(' ')
         end
 
-      result[:flag] = options[:flag] || []
+      result[:flags] =
+        begin
+          recipient_flag = recipient.downcase.gsub(/\s+/, '_')
+          [recipient_flag]
+        end
 
-      result[:hyphenate] = options[:hyphenate] || []
+      if ar = options[:flag]
+        result[:flags] += ar
+      end
+
+      result[:hyphenations] = options[:hyphenate] || []
 
       return result
     end
