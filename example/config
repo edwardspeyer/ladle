@@ -39,7 +39,7 @@ margin '1.41in'
 
 # Recipients, and recipient specific options.
 recipient 'Big Lots'
-  flag :promote_my_california_connections
+  flag :mention_california
   flag :mention_shuffleboard  # Big Lots employees are huge SB-headz!
   # An example flag for an employer who wants to know your address.
   #
@@ -56,7 +56,16 @@ recipient 'Big Lots'
 
 
 recipient 'Facebook'
-  flag :promote_my_california_connections
+  flag :mention_california
+
+
+# A recipient doesn't have to have any options.  The following will generate a
+# generic resume with Walmart in the file name.
+recipient 'Walmart'
+
+
+recipient 'Facebook'
+  flag :mention_california
 
 # A recipient doesn't have to have any options.  The following will generate a
 # generic resume with Walmart in the file name.

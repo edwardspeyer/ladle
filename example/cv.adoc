@@ -135,7 +135,7 @@ A total of 3 *Box Manufacturer's Certificates* were obtained in:
   The degree of Master was subsequently conferred in 1988, upon completion of
   my thesis on the topic of _wood pulp acidity levels in Canadian birch stock_.
 
-ifdef::promote_my_california_connections[]
+ifdef::mention_california[]
 * In my final year I worked closely with the renowned Californian box maker
   *Professor Surfboard* from _University of California at San Diego_.
 endif::[]
