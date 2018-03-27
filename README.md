@@ -8,25 +8,6 @@
 * It has carefully considered defaults; see the examples [**in the repository**](example/output)
 * Minimal dependencies!  20MB vs 3.5GB of MacTeX!
 
-### What it isn't
-
-_ladle_ is less well suited for _résumés_.
-It is best suited to long-form curriculum vitae, the kind of document
-you would provide to someone when you already have their attention
-and know they'll have five minutes devoted to reading all about you.
-
-Instead, for a one-page resume, the following may be useful:
-* [Deedy-Resume](https://github.com/deedy/Deedy-Resume):
-  pretty, but divisive in style!
-* [best-resume-ever](https://github.com/salomonelli/best-resume-ever),
-  though it looks like you'll need to fix a rendering bug.
-* Xavier Danaux's
-  [LaTeX template](https://www.overleaf.com/latex/templates/modern-cv-and-cover-letter-2015-version/sttkgjcysttn)
-* The Breakout List's
-  [LaTeX template](https://www.sharelatex.com/project/55db6ac384d1be370a7d4b9a)
-* [careercup.com's tools](https://www.careercup.com/resume)
-
-
 ## Example
 
 <img src="https://github.com/edwardspeyer/ladle/blob/master/example/output/screenshot.png" width="1084">
@@ -117,3 +98,25 @@ recipient 'Facebook'
 recipient 'Walmart'
   flag :include_my_address
 ````
+
+### What it isn't
+
+_ladle_ is for long-form CVs written in prose.
+It's not so good for short _résumés_.
+Ideally you would use _ladle_
+to make a readable document for someone whose attention
+you already have, where you know they'll have a full
+five minutes devoted to reading all about your wonderful life.
+
+The following look like good options
+for creating an eye-catching one-page resume
+that will get someone's attention:
+* [Deedy-Resume](https://github.com/deedy/Deedy-Resume):
+  pretty, but divisive in style!
+* [best-resume-ever](https://github.com/salomonelli/best-resume-ever),
+  though it looks like you'll need to fix a rendering bug.
+* Xavier Danaux's
+  [LaTeX template](https://www.overleaf.com/latex/templates/modern-cv-and-cover-letter-2015-version/sttkgjcysttn)
+* The Breakout List's
+  [LaTeX template](https://www.sharelatex.com/project/55db6ac384d1be370a7d4b9a)
+* [careercup.com's tools](https://www.careercup.com/resume)
