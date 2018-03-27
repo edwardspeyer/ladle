@@ -35,14 +35,35 @@ _ladle_ builds PDF resumes at the command line (run with `--help` for more infor
 
 ```
 $ bin/ladle example/cv.adoc
-ladle: hyphenating with Text::Hyphen "en_us" based on locale of "en_US.UTF-8"
-ladle: executing fontforge to build Gill Sans
-ladle: using Gill Sans for sans-serif
-ladle: building generic version
-ladle: building Big Lots version
-ladle: building Facebook version
-ladle: building Walmart version
-ladle: done
+🥄  hyphenating with Text::Hyphen "en_us" based on locale of "en_US.UTF-8"
+🥄  executing fontforge to build Gill Sans
+🥄  using Gill Sans for sans-serif
+🥄  building generic version:
+🥄    name         : Hannah Folder
+🥄    document     : Resume
+🥄    recipient    : generic
+🥄    margin       : 1.41in
+🥄    file_name    : Hannah Folder.pdf
+🥄    footer_left  : Hannah Folder -- {page-number} of {page-count}
+🥄    footer_right : Version 65 (C) 2018
+🥄    flags        : ["generic"]
+🥄    hyphenations : ["im-portant", "in-tra-net", "Surfboard"]
+🥄  building Big Lots version:
+🥄    ...
+🥄    recipient    : Big Lots
+🥄    file_name    : Hannah Folder - Big Lots.pdf
+🥄    flags        : ["big_lots", "mention_california", "mention_shuffleboard", "include_my_address"]
+🥄  building Facebook version:
+🥄    ...
+🥄    recipient    : Facebook
+🥄    file_name    : Hannah Folder - Facebook.pdf
+🥄    flags        : ["facebook", "mention_california"]
+🥄  building Walmart version:
+🥄    ...
+🥄    recipient    : Walmart
+🥄    file_name    : Hannah Folder - Walmart.pdf
+🥄    flags        : ["walmart"]
+🥄  done
 
 $ ls *.pdf
 Hannah Folder Resume - Big Lots.pdf
@@ -96,4 +117,3 @@ recipient 'Facebook'
 recipient 'Walmart'
   flag :include_my_address
 ````
-
