@@ -29,7 +29,7 @@ Instead, for a one-page resume, the following may be useful:
 
 ## Example
 
-<img src="https://github.com/edwardspeyer/ladle/blob/master/example/output/screenshot.png" width="622">
+<img src="https://github.com/edwardspeyer/ladle/blob/master/example/output/screenshot.png" width="1084">
 
 _ladle_ builds PDF resumes at the command line (run with `--help` for more information):
 
