@@ -64,24 +64,37 @@ module Ladle
       @options[key] += values
     end
 
-    def each_recipient
+    def each
       generic_options = @recipients[GENERIC]
       for recipient, options in @recipients
-        options[:recipient] = recipient
-        options = add_defaults(generic_options.merge(options))
-        options[:flag] << recipient.downcase.gsub(/\s+/, '_')
-        yield recipient, options
+        # This iterator is where we add in defaults, at the last minute, so
+        # take a "deep" copy (we'll assume that no value is itself a compound
+        # datastructure.)
+        copy = generic_options.merge(options).map{ |k, v| [k, v.dup] }.to_h
+        copy[:recipient] = recipient
+        copy = set_defaults(copy)
+        copy[:flag] << recipient.downcase.gsub(/\s+/, '_')
+        yield recipient, copy
       end
     end
 
-    def add_defaults(options)
-      options[:name] ||= nil
+    include Enumerable
 
-      options[:document] ||= DEFAULT_DOCUMENT_NAME
+    # Normalize the options hash by copying its keys into a new hash.
+    # A side-effect of doing this is that it enforces a normal order on the
+    # result hash
+    def set_defaults(options)
+      result = {}
 
-      options[:margin] ||= DEFAULT_MARGIN
+      result[:name] = options[:name] || nil
 
-      options[:file_name] ||=
+      result[:document] = options[:document] || DEFAULT_DOCUMENT_NAME
+
+      result[:recipient] = options[:recipient]
+
+      result[:margin] = options[:margin] || DEFAULT_MARGIN
+
+      result[:file_name] = options[:file_name] ||
         begin
           stem = [:name, :document].map{ |k| options[k] }.compact.join(' ')
           if options[:recipient] == GENERIC
@@ -91,7 +104,7 @@ module Ladle
           end
         end
 
-      options[:footer_left] ||=
+      result[:footer_left] = options[:footer_left] ||
         begin
           page_info = '{page-number} of {page-count}'
           if name = options[:name]
@@ -101,7 +114,7 @@ module Ladle
           end
         end
 
-      options[:footer_right] ||=
+      result[:footer_right] = options[:footer_right] ||
         begin
           buf = []
           if n = vcs_version
@@ -112,11 +125,11 @@ module Ladle
           buf.join(' ')
         end
 
-      options[:flag] ||= []
+      result[:flag] = options[:flag] || []
 
-      options[:hyphenate] ||= []
+      result[:hyphenate] = options[:hyphenate] || []
 
-      return options
+      return result
     end
 
     def vcs_version
