@@ -41,6 +41,7 @@ module Ladle
     end
 
     def method_missing(key, *args)
+      args = args.flatten
       if KEYS_SINGULAR.include?(key)
         if args.size == 1
           set(key, args.first.to_s)
