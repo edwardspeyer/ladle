@@ -36,17 +36,11 @@ margin '1.41in'
 #
 #footer_right "This be version #{vcs_version}#{vcs_modified? ? '++' : ''}"
 
+
 # Recipients, and recipient specific options.
 recipient 'Big Lots'
   flag :promote_my_california_connections
-  flag :mention_shuffleboard
-
-recipient 'Facebook'
-  flag :promote_my_california_connections
-
-# A recipient doesn't have to have any options.  The following will generate a
-# generic resume with Walmart in the file name.
-recipient 'Walmart'
+  flag :mention_shuffleboard  # Big Lots employees are huge SB-headz!
   # An example flag for an employer who wants to know your address.
   #
   # You would need to then use this with an Asciidoc ifdef, e.g.:
@@ -59,6 +53,14 @@ recipient 'Walmart'
   #   endif::[]
   #
   flag :include_my_address
+
+
+recipient 'Facebook'
+  flag :promote_my_california_connections
+
+# A recipient doesn't have to have any options.  The following will generate a
+# generic resume with Walmart in the file name.
+recipient 'Walmart'
 
 
 # Because this is a Ruby config file, you can do all sorts of useful things
