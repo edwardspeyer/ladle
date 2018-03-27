@@ -67,9 +67,7 @@ module Ladle
     def each
       generic_options = @recipients[GENERIC]
       for recipient, options in @recipients
-        # This iterator is where we add in defaults, at the last minute, so
-        # take a "deep" copy (we'll assume that no value is itself a compound
-        # datastructure.)
+        # Take a deep copy before adding in the defaults:
         copy = generic_options.merge(options).map{ |k, v| [k, v.dup] }.to_h
         copy = set_defaults(copy, recipient)
         yield recipient, copy
