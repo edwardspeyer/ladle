@@ -9,10 +9,27 @@ module Ladle
       prerequisites!(globals)
       sans_serif = Fonts.sans_serif
       Log.log("using #{sans_serif} for sans-serif")
+
+      max_key_width = config.
+        map{ |_,o| o }.
+        inject(&:merge).
+        keys.map(&:length).sort.last
+      format = "  %-#{max_key_width}s : %s"
+      previous_options = {}
+
       with_tmp do
-        config.each_recipient do |recipient, options|
-          Log.log "building #{recipient} version"
+        for recipient, options in config
+          Log.log "building #{recipient} version:"
+          unless previous_options.empty? or options.empty?
+            Log.log('  ...')
+          end
+          for key, value in options
+            if previous_options[key] != value
+              Log.log(format % [key, value])
+            end
+          end
           build_one(asciidoc_file, recipient, options, sans_serif)
+          previous_options = options
         end
         Log.log "done"
       end
