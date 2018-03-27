@@ -94,7 +94,7 @@ module Ladle
 
       result[:file_name] = options[:file_name] ||
         begin
-          stem = [:name, :document].map{ |k| options[k] }.compact.join(' ')
+          stem = [:name, :document].map{ |k| result[k] }.compact.join(' ')
           if recipient == GENERIC
             '%s.pdf' % [stem]
           else
