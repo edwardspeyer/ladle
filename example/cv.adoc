@@ -140,6 +140,8 @@ ifdef::mention_california[]
   *Professor Surfboard* from _University of California at San Diego_.
 endif::[]
 
+ifdef::mention_shuffleboard[]
 * I played shuffleboard for the University, twice reaching and once winning the
   national finals.  I was also treasurer for the University _phoblography_
   club.
+endif::[]
