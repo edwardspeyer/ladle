@@ -53,8 +53,10 @@ module Ladle
 
         TEXT
       end
+
       require 'ladle/ligatures'
       Ladle::Ligatures.install_patch!
+
       require 'ladle/hyphenation'
       Ladle::Hyphenation.install_patch!
 
