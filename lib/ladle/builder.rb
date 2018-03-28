@@ -25,7 +25,13 @@ module Ladle
           end
           for key, value in options
             if previous_options[key] != value
-              Log.log(format % [key, value])
+              case value
+              when Array
+                words = value.map(&:to_s).join(' ')
+                Log.log(format % [key, words])
+              else
+                Log.log(format % [key, value])
+              end
             end
           end
           build_one(asciidoc_file, recipient, options, sans_serif)
