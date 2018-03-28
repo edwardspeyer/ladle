@@ -91,11 +91,11 @@ hyphenate 'Surfboard'
 margin '1.41in'
 
 recipient 'Big Lots'
-  flag :promote_my_california_connections
+  flag :mention_california
   flag :mention_shuffleboard
 
 recipient 'Facebook'
-  flag :promote_my_california_connections
+  flag :mention_california
 
 recipient 'Walmart'
   flag :include_my_address

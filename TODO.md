@@ -3,8 +3,6 @@
 * Warn if different recipients / sets of feature flags result in different
   numbers of pages
 
-* Shorter flags in example config
-
 * Add another conditional to example asciidoc
 
 * Add a page count report?
