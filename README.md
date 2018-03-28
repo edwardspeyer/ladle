@@ -17,6 +17,7 @@ _ladle_ builds PDF resumes at the command line (run with `--help` for more infor
 ```
 $ bin/ladle example/cv.adoc
 🥄  hyphenating with Text::Hyphen "en_us" based on locale of "en_US.UTF-8"
+🥄  executing fontforge to build Gill Sans
 🥄  using Gill Sans for sans-serif
 🥄  building generic version:
 🥄    name         : Hannah Folder
@@ -28,24 +29,28 @@ $ bin/ladle example/cv.adoc
 🥄    line_height  : 1.203
 🥄    file_name    : Hannah Folder Resume.pdf
 🥄    footer_left  : Hannah Folder -- {page-number} of {page-count}
-🥄    footer_right : Version 76 (C) 2018
+🥄    footer_right : Version 78 (C) 2018
 🥄    flags        : generic
 🥄    hyphenations : im-portant in-tra-net Surfboard
+🥄  generated 2 pages
 🥄  building Big Lots version:
 🥄    ...
 🥄    recipient    : Big Lots
 🥄    file_name    : Hannah Folder Resume - Big Lots.pdf
 🥄    flags        : big_lots mention_california mention_shuffleboard include_my_address
+🥄  generated 2 pages
 🥄  building Facebook version:
 🥄    ...
 🥄    recipient    : Facebook
 🥄    file_name    : Hannah Folder Resume - Facebook.pdf
 🥄    flags        : facebook mention_california
+🥄  generated 2 pages
 🥄  building Walmart version:
 🥄    ...
 🥄    recipient    : Walmart
 🥄    file_name    : Hannah Folder Resume - Walmart.pdf
 🥄    flags        : walmart
+🥄  generated 2 pages
 🥄  done
 
 $ ls *.pdf

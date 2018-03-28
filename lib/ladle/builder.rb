@@ -15,10 +15,13 @@ module Ladle
         inject(&:merge).
         keys.map(&:length).sort.last
       format = "  %-#{max_key_width}s : %s"
+
+      first_recipient_page_count = nil
       previous_options = {}
 
       with_tmp do
         for recipient, options in config
+          # Log some information about what we're going to build
           Log.log "building #{recipient} version:"
           unless previous_options.empty? or options.empty?
             Log.log('  ...')
@@ -34,8 +37,26 @@ module Ladle
               end
             end
           end
-          build_one(asciidoc_file, recipient, options, sans_serif)
           previous_options = options
+
+          # Build the output file
+          output_file = options.delete(:file_name)
+          build_one(asciidoc_file, output_file, recipient, options, sans_serif)
+
+          # Check we didn't produce a weird number of pages
+          begin
+            page_count = PDF::Reader.new(output_file).page_count
+            reset = "\033[0m"
+            highlight = ""
+            if first_recipient_page_count
+              if page_count != first_recipient_page_count
+                highlight = "\033[031m"
+              end
+            else
+              first_recipient_page_count = page_count
+            end
+            Log.log('generated %s%d pages%s' % [highlight, page_count, reset])
+          end
         end
         Log.log "done"
       end
@@ -79,7 +100,7 @@ module Ladle
       end
     end
 
-    def build_one(asciidoc_file, recipient, options, sans_serif)
+    def build_one(asciidoc_file, output_file, recipient, options, sans_serif)
       Ladle::Hyphenation.extra_hyphenations = options[:hyphenations]
       attributes = {
         'name'          => options[:name],
@@ -93,7 +114,7 @@ module Ladle
         asciidoc_file.realpath.to_s,
         safe: :safe,
         backend: :pdf,
-        to_file: options[:file_name],
+        to_file: output_file,
         attributes: attributes,
       )
     end
