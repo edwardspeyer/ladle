@@ -18,18 +18,6 @@ font:
       italic: Lato/Lato-Italic.ttf
       bold_italic: Lato/Lato-BlackItalic.ttf
 
-    Lato Bold:
-      normal: Lato/Lato-Regular.ttf
-      bold: Lato/Lato-Bold.ttf
-      italic: Lato/Lato-Italic.ttf
-      bold_italic: Lato/Lato-BoldItalic.ttf
-
-    Ubuntu:
-      normal: Ubuntu/Ubuntu-Regular.ttf
-      bold: Ubuntu/Ubuntu-Bold.ttf
-      italic: Ubuntu/Ubuntu-Italic.ttf
-      bold_italic: Ubuntu/Ubuntu-BoldItalic.ttf
-
     M Plus Fallback:
       normal: M Plus/mplus1p-regular-fallback.ttf
       bold: M Plus/mplus1p-regular-fallback.ttf
