@@ -82,6 +82,11 @@ endif::[]
 * Most experiencd with *brown*, *white* and *grey* boxes.  Some experience with
   other box colors and also with *process automation* for box making all the
   way from tree-fell to box shipment.
+
+ifdef::mention_california[]
+* I've spent a total of 10 years of my career in California and have a detailed
+  knowledge of the state-wide lumber and pulp industry.
+endif::[]
 ````
 
 [`example/config`](example/config) controls the PDF conversion
