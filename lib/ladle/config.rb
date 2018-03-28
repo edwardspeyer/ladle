@@ -5,7 +5,10 @@ module Ladle
     KEYS_SINGULAR = [
       :name,
       :document,
+      :page_size,
       :margin,
+      :font_size,
+      :line_height,
       :footer_left,
       :footer_right,
     ]
@@ -15,7 +18,11 @@ module Ladle
       :flag,
     ]
 
-    DEFAULT_MARGIN = '1.08in'
+    DEFAULT_MARGIN = '1.01in'
+
+    DEFAULT_FONT_SIZE = 10.01
+
+    DEFAULT_LINE_HEIGHT = 1.203
 
     DEFAULT_DOCUMENT_NAME = 'Resume'
 
@@ -44,7 +51,7 @@ module Ladle
       args = args.flatten
       if KEYS_SINGULAR.include?(key)
         if args.size == 1
-          set(key, args.first.to_s)
+          set(key, args.first)
         else
           raise Ladle::Error, "expected 1 argument, got %p" % args
         end
@@ -86,9 +93,15 @@ module Ladle
 
       result[:document] = options[:document] || DEFAULT_DOCUMENT_NAME
 
+      result[:page_size] = options[:page_size] || 'A4'
+
       result[:recipient] = recipient
 
       result[:margin] = options[:margin] || DEFAULT_MARGIN
+
+      result[:font_size] = options[:font_size] || DEFAULT_FONT_SIZE
+
+      result[:line_height] = options[:line_height] || DEFAULT_LINE_HEIGHT
 
       result[:file_name] = options[:file_name] ||
         begin

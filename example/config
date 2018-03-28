@@ -2,7 +2,12 @@
 #   * name the PDF output files; and
 #   * put your name in the default footer.
 name 'Hannah Folder'
+
+# Other settings, and their defaults
 #document 'Resume'
+#page_size 'A4'     # ...or 'Legal', or anything else supported by AsciiDoctor
+#font_size 10.01    # A recommended minimum for printed Garamond
+#line_height 1.203  # Garamond has a low x-height, so 120% line-height is ok
 
 # Some word or words with hyphenation hints.
 hyphenate 'im-portant', 'in-tra-net'

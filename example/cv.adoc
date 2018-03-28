@@ -11,15 +11,15 @@ endif::[]
 
 === *Overview* ===
 
-* Cardboard manufacturing specialist with over 20 years of experience with wood
-  pulping, corrugation, fold-automation and _This Way Up_  arrow orientation.
-  I care about the details and I ship projects on time.
+* Cardboard manufacturing specialist with 20 years of experience in wood
+  pulping, corrugation, folding, and _This Way Up_ arrow orientation.
+  I care about details and ship projects on time.
 
 * Most experiencd with *brown*, *white* and *grey* boxes.  Some experience with
   other box colors and also with *process automation* for box making all the
   way from tree-fell to box shipment.
 
-* I have industry standard qualifications in BTM and PBD: *Box Team Management*
+* Qualified in *Box Team Management*
   and *Principles of Box Design*.
 
 
@@ -28,14 +28,14 @@ endif::[]
 ==== *GotBoxes.com?* — March 2009 to present ====
 
 * As a _Supervisory Cardboard Technician (Level 7)_ I upgraded our box making
-  machine to improve throughput by 140%.  Together with my team of 7 we shipped
+  machine to improve throughput by 140%.  My team of 7 shipped
   multiple important improvements in box making that were critical to the
   success of _Got Boxes?_ program of intra-business improvements.
 
 * I migrated a legacy chip-and-pulp box-blank workflow to a modern die-cut
-  corrugation process.  I successfully specified the system, engaged in a
-  compliant tender process, and procured a manufacturer installed system, all
-  in under 13 weeks, well below the median turnaround time for this type of
+  corrugation process.  I specified the system, engaged a
+  tender process, and procured the system
+  in 13 weeks -- below the median turnaround time for this type of
   corrugation system installation.
 
 * I managed a team of 14 _Mullen Test_ technicians and through a series of four

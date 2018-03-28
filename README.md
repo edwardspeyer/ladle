@@ -17,33 +17,35 @@ _ladle_ builds PDF resumes at the command line (run with `--help` for more infor
 ```
 $ bin/ladle example/cv.adoc
 🥄  hyphenating with Text::Hyphen "en_us" based on locale of "en_US.UTF-8"
-🥄  executing fontforge to build Gill Sans
 🥄  using Gill Sans for sans-serif
 🥄  building generic version:
 🥄    name         : Hannah Folder
 🥄    document     : Resume
+🥄    page_size    : A4
 🥄    recipient    : generic
 🥄    margin       : 1.41in
-🥄    file_name    : Hannah Folder.pdf
+🥄    font_size    : 10.01
+🥄    line_height  : 1.203
+🥄    file_name    : Hannah Folder Resume.pdf
 🥄    footer_left  : Hannah Folder -- {page-number} of {page-count}
-🥄    footer_right : Version 65 (C) 2018
-🥄    flags        : ["generic"]
-🥄    hyphenations : ["im-portant", "in-tra-net", "Surfboard"]
+🥄    footer_right : Version 76 (C) 2018
+🥄    flags        : generic
+🥄    hyphenations : im-portant in-tra-net Surfboard
 🥄  building Big Lots version:
 🥄    ...
 🥄    recipient    : Big Lots
-🥄    file_name    : Hannah Folder - Big Lots.pdf
-🥄    flags        : ["big_lots", "mention_california", "mention_shuffleboard", "include_my_address"]
+🥄    file_name    : Hannah Folder Resume - Big Lots.pdf
+🥄    flags        : big_lots mention_california mention_shuffleboard include_my_address
 🥄  building Facebook version:
 🥄    ...
 🥄    recipient    : Facebook
-🥄    file_name    : Hannah Folder - Facebook.pdf
-🥄    flags        : ["facebook", "mention_california"]
+🥄    file_name    : Hannah Folder Resume - Facebook.pdf
+🥄    flags        : facebook mention_california
 🥄  building Walmart version:
 🥄    ...
 🥄    recipient    : Walmart
-🥄    file_name    : Hannah Folder - Walmart.pdf
-🥄    flags        : ["walmart"]
+🥄    file_name    : Hannah Folder Resume - Walmart.pdf
+🥄    flags        : walmart
 🥄  done
 
 $ ls *.pdf
