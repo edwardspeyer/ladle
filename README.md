@@ -111,7 +111,116 @@ recipient 'Walmart'
   flag :include_my_address
 ````
 
-### What it isn't
+
+## Hints and Tips!
+
+### Typefaces
+
+<img src="example/typefaces/montage.png" width="460">
+
+_EB Garamond_ is the serif face used for the body text.  Garamond has a low
+_x-height_ which makes for a readable body text even at low line-heights.
+This allows for more text than usual to be placed on your CV without sacrificing
+readability.  Georg Duffner's rendition -- shipped with _ladle_ -- looks really good, and
+you can read more about his work on the
+[project's website](http://www.georgduffner.at/ebgaramond/).
+  
+For headings, there are a few choices,
+which can be selected with the `sans_serif "Font Name"` config option:
+
+* _Gill Sans_ is used by default if (i) you're on macOS,
+  (ii) it's available on your system; and
+  (iii) you have _fontforge_ installed.
+  It's a stylish and classic British design long associated with marketing
+  and it is especially impactful in bold, as used in the examples.
+  
+* _Lato Black_ ships with _ladle_ so it can always be used, and is the default
+  fallback if Gill Sans isn't found.
+  It is approximately the same weight as Monotype Gill Sans,
+  but not as stylised.
+
+* _Cabin_ also ships with _ladle_, and is more in the style of Gill Sans,
+  but doesn't have the inky boldness.
+
+### Font, Line and Margin Sizes
+
+In order to create type that is optimised for readability,
+you will want to have:
+* a font-size of around 10pt;
+* a line-height of 120%; and
+* a margin that gives you around 75 to 90 characters per line.
+
+_ladle_'s defaults should get you close, but you'll want to edit
+your config file to enlarge your margins to the largest size possible, and
+increase line-height as much as possible to fill up the page.
+
+Use explicit AsciiDoc page-breaks (`<<<<`) where you expect there to be a page-break
+and don't rely on implicit page-breaks.  _ladle_ will help you detect page
+overflows at the command line as you adjust the _font-size_, _line-height_
+and _margin_ parameters.  Consider the following example AsciiDoc:
+
+````asciidoc
+==== Job 1 ====
+* A
+* B
+* C
+
+==== Job 2 ====
+* D
+* E
+````
+
+Your goal is to render it onto exactly two pages, one section per page,
+avoiding page overflow:
+
+````
+  Good:                      Bad:
+  +-----+  +-----+           +-----+  +-----+
+  |Job 1|  |Job 2|           |Job 1|  |C....|  < overflow
+  |A....|  |D....|           |A....|  |Job 2|
+  |B....|  |E....|           |B....|  |D....|
+  |C....|  |     |           |..   |  |E....|
+  1-----+  2-----+           1-----+  2-----+
+````
+
+It's much easier to debug this from the command line if you use an explicit
+page break:
+  
+````asciidoc  
+==== Job 1 ====
+* A
+* B
+* C
+
+<<<<
+
+==== Job 2 ====
+* D
+* E
+````
+
+When the overflow error case occurs, 3 pages will be rendered, and 
+_ladle_ will give you a warning (highlighted in red on the command line):
+
+````
+  +-----+  +-----+  +-----+
+  |Job 1|  |C....|  |Job 2|
+  |A....|  |     |  |D....|
+  |B....|  |     |  |E....|
+  |..   |  |     |  |     |
+  1-----+  2-----+  3-----+
+
+$ bin/ladle example/cv.adoc
+🥄  building generic version:
+🥄  generated 2 pages
+🥄  building Big Lots version:
+🥄  generated _3_ pages
+````
+
+
+
+
+## Alternatives to _ladle_
 
 _ladle_ is for long-form CVs written in prose.
 It's not so good for short _résumés_.
