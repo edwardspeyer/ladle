@@ -1,0 +1,7 @@
+name 'Dr Typeface Example'
+margin '1.91in'
+
+for font in Fonts::ALL
+  recipient font
+  sans_serif font
+end

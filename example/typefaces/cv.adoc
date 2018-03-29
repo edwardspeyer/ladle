@@ -1,0 +1,13 @@
+== Dr Typeface Example ==
+
+ifdef::gill_sans[:face: Gill Sans]
+ifdef::cabin[:face: Cabin]
+ifdef::lato_black[:face: Lato Black]
+
+=== Professional Experience ===
+
+==== *Mount {face} Hospital* — March 1908 to September 2034 ====
+
+* I worked under the supervision of _Dr Roger S Nhammerstein_ while preparing
+  my PhD thesis in _Unconformable Iris Patternisation and Corrective
+  Opticology_.

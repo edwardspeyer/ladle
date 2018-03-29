@@ -1,0 +1,42 @@
+#!/bin/bash
+
+base="$(dirname "$0")/../.."
+base="$(cd "$base" && pwd)"
+
+# Build the PDFs
+cd "$base/example/typefaces"
+"$base/bin/ladle" ./cv.adoc
+
+# Crop out a section
+crop() {
+  font="$1"
+  dy="$2"
+
+  pdf="Dr Typeface Example Resume - $font.pdf"
+
+  convert \
+    -density 300 \
+    -crop "1420x260+540+$dy" \
+    -fill white \
+    -opaque none \
+    "${pdf}[0]" \
+    "$font.png"
+}
+
+crop 'Gill Sans'   400  &
+crop 'Lato Black'  424  &
+crop 'Cabin'       426  &
+
+wait
+
+# Build a montage
+montage 'Gill Sans.png' 'Lato Black.png' 'Cabin.png' \
+  -tile '1x3' -geometry '1380x260+0+0' \
+  montage.png
+
+# Tidy up
+rm *.pdf
+for face in 'Gill Sans' 'Lato Black' 'Cabin'
+do
+  rm "$face.png"
+done
