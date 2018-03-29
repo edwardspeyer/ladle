@@ -82,7 +82,7 @@ heading:
   h6_font_size: $base_font_size_small
   line_height: 1
   margin_top: $vertical_rhythm * 0.4
-  margin_bottom: $vertical_rhythm * 0.9
+  margin_bottom: $vertical_rhythm * 0.85
 
 title_page:
   align: right
