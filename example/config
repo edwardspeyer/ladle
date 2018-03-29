@@ -69,14 +69,6 @@ recipient 'Facebook'
 recipient 'Walmart'
 
 
-recipient 'Facebook'
-  flag :mention_california
-
-# A recipient doesn't have to have any options.  The following will generate a
-# generic resume with Walmart in the file name.
-recipient 'Walmart'
-
-
 # Because this is a Ruby config file, you can do all sorts of useful things
 # that will help both you and the perception of Ruby in general:
 for state in %w{
