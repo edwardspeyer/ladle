@@ -13,6 +13,7 @@ module Ladle
 
     GILL_SANS = 'Gill Sans'
     LATO_BLACK = 'Lato Black'
+    CABIN = 'Cabin'
 
     def prepare_fonts!
       prepare_font GILL_SANS,

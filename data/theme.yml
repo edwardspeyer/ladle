@@ -18,6 +18,12 @@ font:
       italic: Lato/Lato-Italic.ttf
       bold_italic: Lato/Lato-BlackItalic.ttf
 
+    Cabin:
+      normal: Cabin/Cabin-Regular.ttf
+      bold: Cabin/Cabin-Bold.ttf
+      italic: Cabin/Cabin-Italic.ttf
+      bold_italic: Cabin/Cabin-BoldItalic.ttf
+
     M Plus Fallback:
       normal: M Plus/mplus1p-regular-fallback.ttf
       bold: M Plus/mplus1p-regular-fallback.ttf
