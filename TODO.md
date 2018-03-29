@@ -1,4 +1,0 @@
-## TODO
-
-* Mention EB Garamond as being a low x height, allowing for smaller line
-  heights 
