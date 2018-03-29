@@ -1,9 +1,7 @@
 # Ladle
 
-## What is Ladle?
-
-* Helps you write your **CV**, and maybe a **resume** too
-* You write in **AsciiDoc** and _ladle_ generates **PDF** output
+* Templating system for writing **CVs** and **resumes**
+* You write in **AsciiDoc** and _ladle_ drives _asciidoctor-pdf_ to generate **PDF** output
 * It focuses on producing **easily readable typography**
 * It has carefully considered defaults; see the examples [**in the repository**](example/output)
 * Minimal dependencies!  20MB vs 3.5GB of MacTeX!
@@ -11,8 +9,6 @@
 ## Example
 
 <img src="https://github.com/edwardspeyer/ladle/blob/master/example/output/screenshot.png" width="1084">
-
-_ladle_ builds PDF resumes at the command line (run with `--help` for more information):
 
 ```
 $ bin/ladle example/cv.adoc
@@ -112,11 +108,9 @@ recipient 'Walmart'
 ````
 
 
-## Hints and Tips!
+## Hints and Tips
 
 ### Typefaces
-
-<img src="example/typefaces/montage.png" width="460">
 
 _EB Garamond_ is the serif face used for the body text.  Garamond has a low
 _x-height_ which makes for a readable body text even at low line-heights.
@@ -124,9 +118,11 @@ This allows for more text than usual to be placed on your CV without sacrificing
 readability.  Georg Duffner's rendition -- shipped with _ladle_ -- looks really good, and
 you can read more about his work on the
 [project's website](http://www.georgduffner.at/ebgaramond/).
-  
+
 For headings, there are a few choices,
 which can be selected with the `sans_serif "Font Name"` config option:
+
+<img src="example/typefaces/montage.png" width="460">
 
 * _Gill Sans_ is used by default if (i) you're on macOS,
   (ii) it's available on your system; and
