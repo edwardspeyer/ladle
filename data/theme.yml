@@ -208,7 +208,7 @@ description_list:
 
 outline_list:
   indent: $horizontal_rhythm * 1.5
-  item_spacing: $vertical_rhythm / 2
+  item_spacing: $vertical_rhythm * 0.45
 
 table:
   background_color: $page_background_color
