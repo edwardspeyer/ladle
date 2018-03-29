@@ -60,8 +60,6 @@ module Ladle
           raise Error, 'asciidoc-file not found: %s' % asciidoc_file
         end
 
-        require 'ladle/config'
-        config = Config.new
         config_path =
           if @config_path
             Pathname.new(@config_path)
@@ -73,10 +71,11 @@ module Ladle
           raise Ladle::Error, "config not found: %s" % config_path
         end
 
-        config.load(config_path)
+        require 'ladle/parser'
+        configs = Parser.new.load(config_path).build
 
         require 'ladle/builder'
-        Builder.build_all(asciidoc_file, config, @globals)
+        Builder.build_all(asciidoc_file, configs, @globals)
       end
     end
   end
