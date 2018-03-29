@@ -121,7 +121,7 @@ module Ladle
           Term::HIGHLIGHT
         end
       Log.log(
-        'generated %s%d pages%s' %
+        '  generated %s%d pages%s' %
         [highlight, actual_page_count, Term::RESET]
       )
     end
@@ -141,7 +141,7 @@ module Ladle
         end
 
       Log.log(
-        'median line-length of %s%d chars%s' %
+        '  median line-length of %s%d chars%s' %
         [highlight, median_length, Term::RESET]
       )
     rescue Errno::ENOENT
