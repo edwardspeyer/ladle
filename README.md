@@ -14,26 +14,27 @@
 $ bin/ladle example/cv.adoc
 🥄  hyphenating with Text::Hyphen "en_us" based on locale of "en_US.UTF-8"
 🥄  executing fontforge to build Gill Sans
-🥄  using Gill Sans for sans-serif
+🥄  fonts prepared for Gill Sans
 🥄  building generic version:
 🥄    name         : Hannah Folder
 🥄    document     : Resume
-🥄    page_size    : A4
 🥄    recipient    : generic
+🥄    file_name    : Hannah Folder Resume.pdf
+🥄    page_size    : A4
 🥄    margin       : 1.41in
+🥄    sans_serif   : Gill Sans
 🥄    font_size    : 10.01
 🥄    line_height  : 1.203
-🥄    file_name    : Hannah Folder Resume.pdf
 🥄    footer_left  : Hannah Folder -- {page-number} of {page-count}
-🥄    footer_right : Version 78 (C) 2018
+🥄    footer_right : Version 86 (C) 2018
+🥄    hyphenations : Surfboard im-portant in-tra-net
 🥄    flags        : generic
-🥄    hyphenations : im-portant in-tra-net Surfboard
 🥄  generated 2 pages
 🥄  building Big Lots version:
 🥄    ...
 🥄    recipient    : Big Lots
 🥄    file_name    : Hannah Folder Resume - Big Lots.pdf
-🥄    flags        : big_lots mention_california mention_shuffleboard include_my_address
+🥄    flags        : big_lots include_my_address mention_california mention_shuffleboard
 🥄  generated 2 pages
 🥄  building Facebook version:
 🥄    ...
