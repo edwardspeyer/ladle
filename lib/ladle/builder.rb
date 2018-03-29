@@ -1,5 +1,6 @@
 module Ladle
   module Builder
+    require 'ladle/term'
     require 'pathname'
     require 'tmpdir'
 
@@ -38,20 +39,11 @@ module Ladle
           # Build the PDF
           build_one(asciidoc_file, config)
 
-          # Check we didn't produce a weird number of pages
-          begin
-            page_count = PDF::Reader.new(config.file_name).page_count
-            reset = "\033[0m"
-            highlight = ""
-            if first_recipient_page_count
-              if page_count != first_recipient_page_count
-                highlight = "\033[031m"
-              end
-            else
-              first_recipient_page_count = page_count
-            end
-            Log.log('generated %s%d pages%s' % [highlight, page_count, reset])
-          end
+          # Check the PDF
+          page_count = PDF::Reader.new(config.file_name).page_count
+          first_recipient_page_count ||= page_count
+          check_page_count(page_count, first_recipient_page_count)
+          check_line_lengths(config.file_name)
         end
         Log.log "done"
       end
@@ -121,6 +113,42 @@ module Ladle
       theme_file = @tmp + 'theme.yml'
       theme_file.open('w'){ |io| io.print(theme) }
       return theme_file.to_s
+    end
+
+    def check_page_count(actual_page_count, expected_page_count)
+      highlight =
+        if actual_page_count != expected_page_count
+          Term::HIGHLIGHT
+        end
+      Log.log(
+        'generated %s%d pages%s' %
+        [highlight, actual_page_count, Term::RESET]
+      )
+    end
+
+    def check_line_lengths(file_name)
+      output, status = Open3.capture2e('pdf_text', file_name.to_s)
+      lengths = output.lines.map do |line|
+        line = line.sub(/^\s+•\s+/, '').strip.sub(/\W/, '').size
+      end.reject do |length|
+        length == 0
+      end
+
+      median_length = lengths.sort[lengths.size / 2]
+      highlight =
+        if median_length > 90
+          Term::HIGHLIGHT
+        end
+
+      Log.log(
+        'median line-length of %s%d chars%s' %
+        [highlight, median_length, Term::RESET]
+      )
+    rescue Errno::ENOENT
+      unless @reported_skipping_line_lengths
+        Log.log('skipping line-length, pdf_text(1) not found')
+        @reported_skipping_line_lengths = true
+      end
     end
   end
 end

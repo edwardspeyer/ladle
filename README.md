@@ -26,28 +26,32 @@ $ bin/ladle example/cv.adoc
 🥄    font_size    : 10.01
 🥄    line_height  : 1.203
 🥄    footer_left  : Hannah Folder -- {page-number} of {page-count}
-🥄    footer_right : Version 86 (C) 2018
+🥄    footer_right : Version 88 (C) 2018
 🥄    hyphenations : Surfboard im-portant in-tra-net
 🥄    flags        : generic
 🥄  generated 2 pages
+🥄  median line-length of 89 chars
 🥄  building Big Lots version:
 🥄    ...
 🥄    recipient    : Big Lots
 🥄    file_name    : Hannah Folder Resume - Big Lots.pdf
 🥄    flags        : big_lots include_my_address mention_california mention_shuffleboard
 🥄  generated 2 pages
+🥄  median line-length of 89 chars
 🥄  building Facebook version:
 🥄    ...
 🥄    recipient    : Facebook
 🥄    file_name    : Hannah Folder Resume - Facebook.pdf
 🥄    flags        : facebook mention_california
 🥄  generated 2 pages
+🥄  median line-length of 89 chars
 🥄  building Walmart version:
 🥄    ...
 🥄    recipient    : Walmart
 🥄    file_name    : Hannah Folder Resume - Walmart.pdf
 🥄    flags        : walmart
 🥄  generated 2 pages
+🥄  median line-length of 89 chars
 🥄  done
 
 $ ls *.pdf

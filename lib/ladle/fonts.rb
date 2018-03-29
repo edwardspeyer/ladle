@@ -36,7 +36,7 @@ module Ladle
 
     def prepare_font(name, system_font, *local_fonts)
       unless exist? system_font
-        Log.log('unable to prepare %s, missing %s' % [name, system_font]) 
+        Log.log('unable to prepare %s, missing %s' % [name, system_font])
       end
       font_directory = Paths::FONTS + name
       Dir.mkdir(font_directory) unless Dir.exist?(font_directory)
