@@ -7,8 +7,6 @@ module Ladle
 
     def build_all(asciidoc_file, configs, globals)
       prerequisites!(globals)
-      sans_serif = Fonts.sans_serif
-      Log.log("using #{sans_serif} for sans-serif")
 
       all_keys = configs.map(&:to_h).map(&:keys).inject(&:+)
       max_key_width = all_keys.map(&:to_s).map(&:size).sort.last
@@ -38,7 +36,7 @@ module Ladle
           previous_config_hash = config.to_h
 
           # Build the PDF
-          build_one(asciidoc_file, config, sans_serif)
+          build_one(asciidoc_file, config)
 
           # Check we didn't produce a weird number of pages
           begin
@@ -97,11 +95,11 @@ module Ladle
       end
     end
 
-    def build_one(asciidoc_file, config, sans_serif)
+    def build_one(asciidoc_file, config)
       Ladle::Hyphenation.extra_hyphenations = config.hyphenations
       attributes = {
         'name'          => config.name,
-        'pdf-style'     => build_theme_file(config, sans_serif),
+        'pdf-style'     => build_theme_file(config),
         'pdf-fontsdir'  => "#{Paths::DATA}/fonts/",
       }
       for flag in config.flags
@@ -116,12 +114,9 @@ module Ladle
       )
     end
 
-    def build_theme_file(config, sans_serif)
+    def build_theme_file(config)
       original = (Paths::DATA + 'theme.yml').read
-      hash = config.to_h
-      # Figure out the sans-serif font
-      hash['sans_serif'] = sans_serif
-      addenda = {'ladle' => hash}.to_yaml
+      addenda = {'ladle' => config.to_h}.to_yaml
       theme = addenda + "\n" + original + "\n"
       theme_file = @tmp + 'theme.yml'
       theme_file.open('w'){ |io| io.print(theme) }

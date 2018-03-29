@@ -1,6 +1,7 @@
 module Ladle
   class Parser
     require 'ladle/config'
+    require 'ladle/fonts'
 
     def initialize
       @configs = [Config.new]
@@ -41,6 +42,10 @@ module Ladle
 
     def margin(margin)
       @configs.last.margin = type(margin, String)
+    end
+
+    def sans_serif(sans_serif)
+      @configs.last.sans_serif = enum(sans_serif, Fonts::ALL)
     end
 
     def font_size(font_size)

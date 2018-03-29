@@ -7,6 +7,7 @@ module Ladle
       :file_name,
       :page_size,
       :margin,
+      :sans_serif,
       :font_size,
       :line_height,
       :footer_left,
@@ -52,6 +53,14 @@ module Ladle
 
     def margin
       @margin || DEFAULT_MARGIN
+    end
+
+    def sans_serif
+      @sans_serif || default_sans_serif
+    end
+
+    def default_sans_serif
+      Fonts.sans_serif
     end
 
     def font_size

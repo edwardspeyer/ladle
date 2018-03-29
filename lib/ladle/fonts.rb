@@ -14,6 +14,7 @@ module Ladle
     GILL_SANS = 'Gill Sans'
     LATO_BLACK = 'Lato Black'
     CABIN = 'Cabin'
+    ALL = [GILL_SANS, LATO_BLACK, CABIN]
 
     def prepare_fonts!
       prepare_font GILL_SANS,
@@ -34,11 +35,16 @@ module Ladle
     end
 
     def prepare_font(name, system_font, *local_fonts)
-      return unless exist? system_font
+      unless exist? system_font
+        Log.log('unable to prepare %s, missing %s' % [name, system_font]) 
+      end
       font_directory = Paths::FONTS + name
       Dir.mkdir(font_directory) unless Dir.exist?(font_directory)
       Dir.chdir(font_directory) do
-        return if exist? local_fonts
+        if exist? local_fonts
+          Log.log('local fonts already prepared for %s' % name)
+          return
+        end
 
         begin
           Open3.capture2e(['fontforge', '-h'])
@@ -64,6 +70,8 @@ module Ladle
             "we ran %p but didn't get expected files: %p" %
             [command, local_fonts]
         end
+
+        Log.log('fonts prepared for %s' % name)
       end
     end
 
