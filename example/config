@@ -9,6 +9,10 @@ name 'Hannah Folder'
 #font_size 10.01    # A recommended minimum for printed Garamond
 #line_height 1.203  # Garamond has a low x-height, so 120% line-height is ok
 
+# Use page_limit when adjusting typography metrics: ladle can warn you if it
+# creates more than your target number of pages.
+#page_limit 2
+
 # "Gill Sans" is used if it can be found on your system, otherwise "Lato Black"
 # is the default fallback.  You can also use "Cabin" if you prefer something
 # that's (1) more stylized and/or/but (2) not as black as Gill Sans.

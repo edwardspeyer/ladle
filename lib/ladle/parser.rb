@@ -40,6 +40,10 @@ module Ladle
       @configs.last.page_size = enum(page_size, %w{ A4 Legal })
     end
 
+    def page_limit(page_limit)
+      @configs.last.page_limit = type(page_limit, Integer)
+    end
+
     def margin(margin)
       @configs.last.margin = type(margin, String)
     end

@@ -13,7 +13,7 @@ module Ladle
       max_key_width = all_keys.map(&:to_s).map(&:size).sort.last
       format = "  %-#{max_key_width}s : %s"
 
-      first_recipient_page_count = nil
+      first_page_count = nil
       previous_config_hash = {}
 
       with_tmp do
@@ -41,8 +41,8 @@ module Ladle
 
           # Check the PDF
           page_count = PDF::Reader.new(config.file_name).page_count
-          first_recipient_page_count ||= page_count
-          check_page_count(page_count, first_recipient_page_count)
+          first_page_count ||= page_count
+          check_page_count(page_count, first_page_count, config.page_limit)
           check_line_lengths(config.file_name)
         end
         Log.log "done"
@@ -115,11 +115,13 @@ module Ladle
       return theme_file.to_s
     end
 
-    def check_page_count(actual_page_count, expected_page_count)
+    def check_page_count(actual_page_count, expected_page_count, limit)
       highlight =
-        if actual_page_count != expected_page_count
+        if (actual_page_count != expected_page_count) or
+          (limit and (actual_page_count > limit))
           Term::HIGHLIGHT
         end
+
       Log.log(
         '  generated %s%d pages%s' %
         [highlight, actual_page_count, Term::RESET]

@@ -6,6 +6,7 @@ module Ladle
       :recipient,
       :file_name,
       :page_size,
+      :page_limit,
       :margin,
       :sans_serif,
       :font_size,
@@ -49,6 +50,10 @@ module Ladle
 
     def page_size
       @page_size || DEFAULT_PAGE_SIZE
+    end
+
+    def page_limit
+      @page_limit || nil
     end
 
     def margin
