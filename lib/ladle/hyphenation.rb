@@ -41,7 +41,7 @@ module Ladle
     #
     module Extension
       require 'text/hyphen'
-      Shy_Hyphen = '&#173;'
+      SOFT_HYPHEN = '&#173;'
       PCDATA = /(?:(&[a-z]+;|<[^>]+>)|([^&<]+))/
 
       @@hyphenator =
@@ -77,9 +77,9 @@ module Ladle
         string.split(/[^[[:word:]]]+/).uniq.inject(string) do |string, word|
           hyphenation =
             if parts = Ladle::Hyphenation.extra_hyphenations[word]
-              parts.join(Shy_Hyphen)
+              parts.join(SOFT_HYPHEN)
             else
-              @@hyphenator.visualize(word, Shy_Hyphen)
+              @@hyphenator.visualize(word, SOFT_HYPHEN)
             end
           string.gsub(word, hyphenation)
         end
