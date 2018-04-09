@@ -44,6 +44,9 @@ module Ladle
       SOFT_HYPHEN = '&#173;'
       PCDATA = /(?:(&[a-z]+;|<[^>]+>)|([^&<]+))/
 
+      # Wrapper to Text::Hyphen's :left and :right settings.
+      MINIMUM_LETTERS = 2
+
       @@hyphenator =
         begin
           language =
@@ -55,7 +58,12 @@ module Ladle
             'hyphenating with Text::Hyphen %p based on locale of %p' %
             [language, ENV['LANG']]
           )
-          Text::Hyphen.new(language: language, left: 2, right: 2)
+          # When :left/:right are set to 3 I still see some 2-letter
+          # hyphenations ("en-crypted"), and when it's set to 2 I simply see
+          # more.  2-letter-prefixes in a hyphenation are fine.  Subtracting
+          # one works around this bug.
+          min = MINIMUM_LETTERS - 1
+          Text::Hyphen.new(language: language, left: min, right: min)
         end
 
       def content
